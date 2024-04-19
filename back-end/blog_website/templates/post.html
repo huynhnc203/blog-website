@@ -28,7 +28,7 @@
           <hr>
             {% if current_user.is_authenticated and current_user.id == 1 %}
             <div class="clearfix">
-            <a class="btn btn-primary float-right" href="{{url_for('edit_post', post_id=post.id)}}">Edit Post</a>
+            <a class="btn btn-primary float-right" href="{{url_for('blog_demo.edit_post', post_id=post.id)}}">Edit Post</a>
             </div>
           {% endif %}
 
