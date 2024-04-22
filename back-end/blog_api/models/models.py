@@ -1,41 +1,12 @@
-from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, PasswordField
-from wtforms.validators import DataRequired, URL
-from flask_ckeditor import CKEditorField
-from blog_website import db
+from blog_api import db
 from flask_login import UserMixin
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import relationship
-from werkzeug.security import generate_password_hash
-
-##WTForm
-class CreatePostForm(FlaskForm):
-    title = StringField("Blog Post Title", validators=[DataRequired()])
-    subtitle = StringField("Subtitle", validators=[DataRequired()])
-    img_url = StringField("Blog Image URL", validators=[DataRequired(), URL()])
-    body = CKEditorField("Blog Content", validators=[DataRequired()])
-    submit = SubmitField("Submit Post")
-
-class RegisterForm(FlaskForm):
-    email = StringField("Email", validators=[DataRequired()])
-    password = PasswordField("Password", validators=[DataRequired()])
-    name = StringField("Name", validators=[DataRequired()])
-    submit = SubmitField("SIGN ME UP!")
-
-class LoginForm(FlaskForm):
-    email = StringField("Email", validators=[DataRequired()])
-    password = PasswordField("Password", validators=[DataRequired()])
-    submit = SubmitField("LOGIN")
-
-class CommentForm(FlaskForm):
-    body = CKEditorField("Comment", validators=[DataRequired()])
-    submit = SubmitField("Submit comment")
-
+from werkzeug.security import generate_password_hash, check_password_hash
 
 class BlogPost(db.Model):
     __tablename__ = "blog_posts"
     id = db.Column(db.Integer, primary_key=True)
-
     title = db.Column(db.String(250), unique=True, nullable=False)
     subtitle = db.Column(db.String(250), nullable=False)
     date = db.Column(db.String(250), nullable=False)
@@ -55,6 +26,15 @@ class User(db.Model, UserMixin):
     posts = relationship("BlogPost", back_populates="author")
     comments = relationship("Comment", back_populates="author")
 
+    def __init__(self, name, email, password):
+        self.name = name
+        self.email = email
+        self.password = generate_password_hash(password)
+
+    def check_password(self, password):
+        return check_password_hash(self.password, password)
+    
+
 class Comment(db.Model):
     __tablename__ = "comments"
     id = db.Column(db.Integer, primary_key=True)
@@ -63,3 +43,9 @@ class Comment(db.Model):
     post = relationship("BlogPost", back_populates="comments")
     user_id = db.Column(db.Integer, ForeignKey("users.id"))
     blog_id = db.Column(db.Integer, ForeignKey("blog_posts.id"))
+
+class Follower(db.Model):
+    __tablename__ = "followers"
+    user_id = db.Column(db.Integer)
+    follower_id = db.Column(db.Integer)
+    db.PrimaryKeyConstraint(user_id, follower_id)
