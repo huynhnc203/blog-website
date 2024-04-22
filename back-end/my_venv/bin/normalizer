@@ -1,4 +1,4 @@
-#!/Users/nguyenhuynh/Documents/ML/blog-website/back-end/blog_demo/bin/python3
+#!/Users/nguyenhuynh/Documents/ML/blog-website/back-end/my_venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
