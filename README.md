@@ -63,4 +63,4 @@ python main.py
 
 ## Database:
 
-![Database](./assets/blog_website_database.png "Database")
+![Database](./assets/db_log.png "Database")
