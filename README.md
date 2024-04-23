@@ -59,8 +59,3 @@ python main.py
 - Hiển thị các tags và danh mục liên quản để người đọc có thể khám phá nội dung tương tự.
 
 
-
-
-## Database:
-
-![Database](./assets/db_blog.png "Database")
