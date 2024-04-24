@@ -1,8 +1,11 @@
 import React from "react";
 import './Homepage.css'
+import NavBar from "./NavBar";
 
 const Homepage = () => {
     return(
+        <>
+        <NavBar />
         <div>
             <div className="banner">
                 <div style={{paddingLeft: '120px'}}>
@@ -14,6 +17,7 @@ const Homepage = () => {
                 </div>
             </div>
         </div>
+        </>
     )
 }
 
