@@ -57,8 +57,7 @@ login_manager.init_app(app)
 api = Api(app)
 db = create_db(app)
 
-from blog_api.users.management.user_management import UserLogin, UserRegister
+from blog_api.users.management.user_management import UserAuthenticate
 
-api.add_resource(UserLogin, "/login")
-api.add_resource(UserRegister, "/register")
+api.add_resource(UserAuthenticate, "/authenticate")
 
