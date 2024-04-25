@@ -4,16 +4,10 @@ from flask_restful import Resource, reqparse
 from blog_api.models.models import User
 from flask_login import login_user, current_user, logout_user, login_required
 
-login_parser = reqparse.RequestParser()
-register_parser = reqparse.RequestParser()
-update_parser = reqparse.RequestParser()
-
-for parser in [login_parser, register_parser, update_parser]:
-    parser.add_argument("email", type=str)
-    parser.add_argument("password", type=str)
-
-for parser in [register_parser, update_parser]:
-    parser.add_argument("name", type=str)
+parser = reqparse.RequestParser()
+parser.add_argument("email", type=str)
+parser.add_argument("password", type=str)
+parser.add_argument("name", type=str)
 
 
 @login_manager.user_loader
@@ -39,7 +33,7 @@ class UserAuthenticate(Resource):
             
             if current_user.is_authenticated:
                 return jsonify({"message": "User is already authenticated"})
-            args = login_parser.parse_args()
+            args = parser.parse_args()
             email = args["email"]
             password = args["password"]
             user = User.query.filter_by(email=email).first()
@@ -51,7 +45,7 @@ class UserAuthenticate(Resource):
         elif type_post == 'Register':
             if current_user.is_authenticated:
                 return jsonify({"message": "User is already authenticated"})
-            args = register_parser.parse_args()
+            args = parser.parse_args()
             email = args["email"]
             name = args["name"]
             password = args["password"]
@@ -73,7 +67,7 @@ class UserAuthenticate(Resource):
     
     @login_required
     def put(self):
-        args = update_parser.parse_args()
+        args = parser.parse_args()
         new_name = args["name"]
         new_email = args["email"]
         new_password = args["password"]
