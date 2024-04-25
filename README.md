@@ -36,7 +36,7 @@ python main.py
 
 ### 3. Quản lý nội dung dễ dàng:
 
-- Giao diện quản trị đơn giản, cho phép biên tập, sử đổi và quản lý bài viết, quản lý kênh.
+- Giao diện quản trị đơn giản, cho phép biên tập, sửa đổi và quản lý bài viết, quản lý kênh.
 
 - Hỗ trợ định dạng văn bản, hình ảnh, video.
 
@@ -56,6 +56,6 @@ python main.py
 
 - Hỗ trợ tạo và quản lý các tags và danh mục để phân loại bài viết một cách rõ ràng và dễ dàng tìm kiếm.
 
-- Hiển thị các tags và danh mục liên quản để người đọc có thể khám phá nội dung tương tự.
+- Hiển thị các tags và danh mục liên quan để người đọc có thể khám phá nội dung tương tự.
 
 
