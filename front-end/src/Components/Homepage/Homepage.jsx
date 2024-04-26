@@ -1,11 +1,11 @@
 import React from "react";
+import { Outlet } from "react-router-dom";
 import './Homepage.css'
-import NavBar from "./NavBar";
+import LoginForm from "../LoginForm/LoginForm";
 
 const Homepage = () => {
     return(
         <>
-        <NavBar />
         <div>
             <div className="banner">
                 <div style={{paddingLeft: '120px'}}>

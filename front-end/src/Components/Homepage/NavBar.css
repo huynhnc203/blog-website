@@ -1,38 +1,22 @@
+/* Lề cho thanh điều hướng */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 100px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
-
-.navbar.active {
-    background-color: #f8f8f8;
-}
-
-.navbar img {
-    height: 100px;
-    width: auto;
-}
-
-.links-box ul {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.links-box ul li {
-    margin-right: 20px;
-    font-size: 16px;
-    font-weight: 500;
-    color: #333;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.links-box ul li:hover {
-    color: #007bff;
-}
+    padding: 20px 50px;
+  }
+  
+  /* Định dạng cho các nút trên thanh điều hướng */
+  .nav-link {
+    font-weight: bold;
+    font-size: 1em;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  /* Hiệu ứng khi di chuột qua các nút */
+  .nav-link:hover {
+    color: lightblue;
+  }
+  
+  /* Định dạng cho nút Sign in */
+  .btn-dark {
+    width: 120px;
+    border-radius: 5px;
+  }
