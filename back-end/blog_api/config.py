@@ -18,7 +18,7 @@ class BaseConfig(object):
 class ProductionConfig(BaseConfig):
     """Production configuration."""
     DEBUG = False
-    SECRET_KEY = open(os.path.realpath('..') + '/secret_key.txt', 'r').read()
+    SECRET_KEY = open(os.path.realpath('.') + '/secret_key.txt', 'r').read()
 
 class Development(BaseConfig):
     """Development configuration."""
