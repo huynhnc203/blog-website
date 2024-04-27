@@ -1,18 +1,12 @@
-from blog_api import create_app, db, login_manager
-from flask_login import LoginManager
+from blog_api.test.basic_test import BasicTestCase
+from blog_api import login_manager, db
 from flask_restful import Api
 import os
-import unittest
-import tempfile
 import json
 
-class UserManagementTestCase(unittest.TestCase):
+class UserManagementTestCase(BasicTestCase):
     def setUp(self) -> None:
-        test_config = {}
-        self.test_db_file = tempfile.mkstemp()[1]
-        test_config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{self.test_db_file}"
-        test_config["TESTING"] = True
-        self.app = create_app(alt_config=test_config)
+        super().setUp()
         db.init_app(self.app)
         with self.app.app_context():
             db.create_all()
