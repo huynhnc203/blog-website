@@ -65,7 +65,6 @@ const TrendingPost = () => {
                     Artificial Intelligence: The Future of Healthcare
                 </Text>
             </CardBody>
-            <Image objectFit="cover" src="technology.png" alt="Chakra UI" />
             <CardFooter justifyContent="space-between" flexWrap="wrap">
                 <Button
                     className={`like-button ${liked ? "liked" : ""}`}
