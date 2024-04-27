@@ -47,5 +47,6 @@
     border: 2px solid black;
   }
 
-
-  
+  .feature-post-container {
+    margin-top: 50px;
+}

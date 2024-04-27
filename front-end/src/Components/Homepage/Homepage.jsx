@@ -2,6 +2,7 @@ import React from "react";
 import './Homepage.css'
 import LoginForm from "../LoginForm/LoginForm";
 import { Button } from "react-bootstrap";
+import FeaturePost from "./HomepageTwo/FeaturePost";
 
 const Homepage = () => {
     return(
@@ -15,6 +16,12 @@ const Homepage = () => {
                 </div>
             </div>
         </div>
+        <div className="feature-post-container">
+         <FeaturePost/> 
+        </div>
+
+
+
         </>
     )
 }
