@@ -196,3 +196,6 @@ yarn-error.log*
 
 # Local Netlify folder
 .netlify
+
+# Add package-lock.json here
+package-lock.json
