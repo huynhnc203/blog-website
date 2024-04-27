@@ -61,5 +61,4 @@ const CardBlog = () => {
         </Card>
     )
 }
-
 export default CardBlog;

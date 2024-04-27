@@ -3,6 +3,7 @@ import './Homepage.css'
 import LoginForm from "../LoginForm/LoginForm";
 import { Button } from "react-bootstrap";
 import FeaturePost from "./HomepageTwo/FeaturePost";
+import Learmore from "./HomepageThree/Learnmore" ;
 
 const Homepage = () => {
     return(
@@ -19,7 +20,9 @@ const Homepage = () => {
         <div className="feature-post-container">
          <FeaturePost/> 
         </div>
-
+        <div className = "Learn">
+            <Learmore/>
+        </div>
 
 
         </>
