@@ -14,8 +14,8 @@ const CardBlog = () => {
                         <Avatar name='Hung' src='hunggay.jpg' />
 
                         <Box>
-                            <Heading size='sm'>Hung Gay</Heading>
-                            <Text>O Xin</Text>
+                            <Heading size='sm'>Hung Depzai</Heading>
+                            <Text>hi ae</Text>
                         </Box>
                     </Flex>
                     <IconButton
@@ -28,7 +28,7 @@ const CardBlog = () => {
             </CardHeader>
             <CardBody>
                 <Text>
-                    Tôi là một deverlopber chuyên nghiệp , tiếng anh thành thạo hi ,hello , sở thích đánh đàn nhảy dây và nhảy erobic.
+                    Tôi là một deverlopber chuyên nghiệp, tiếng anh thành thạo hi, hello, sở thích nghe nhạc dzz và ngồi hát.
                     Trang web đỉnh của chóp do Phúc đẹp trai vĩ đại xây dựng này thực sự ấn tượng đối với tôi.
                     Một trang web mang đầy đủ tinh hoa của một svip.
                 </Text>
