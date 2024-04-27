@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, CardBody, Image, Stack , Heading, Text, Button, } from '@chakra-ui/react'
-import { FcDownRight } from "react-icons/fc";
+import { FcSearch } from "react-icons/fc";
 
 const ExplainCard = () => {
     return (
@@ -17,7 +17,7 @@ const ExplainCard = () => {
               Trở thành top 1 trong lĩnh vực công nghệ thông tin với những bài viết chất lượng từ chuyên gia hàng đầu.
               Gần được 1000 bài viết từ các chuyên gia hàng đầu trong lĩnh vực công nghệ thông tin. 
             </Text>
-            <Button leftIcon={<FcDownRight/>} colorScheme='teal' variant='outline'>
+            <Button rightIcon={<FcSearch/>} colorScheme='teal' variant='outline'>
               Explain now
             </Button>
           </Stack>
