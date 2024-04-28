@@ -1,0 +1,1 @@
+from blog_api import app as application
