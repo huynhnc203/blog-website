@@ -4,6 +4,7 @@ import { Button } from "react-bootstrap";
 import FeaturePost from "./HomepageTwo/FeaturePost";
 import Learmore from "./HomepageThree/Learnmore" ;
 import DevelopmentTeam from "./HomepageFour/DevelopmentTeam";
+import GridEvaluatePage from "./EvaluatePage/EvaluatePage";
 
 const Homepage = () => {
     return(
@@ -25,6 +26,9 @@ const Homepage = () => {
         </div>
         <div>
             <DevelopmentTeam/>
+        </div>
+        <div>
+            <GridEvaluatePage/>
         </div>
 
         </>
