@@ -1,9 +1,9 @@
 import React from "react";
 import './Homepage.css'
-import LoginForm from "../LoginForm/LoginForm";
 import { Button } from "react-bootstrap";
 import FeaturePost from "./HomepageTwo/FeaturePost";
 import Learmore from "./HomepageThree/Learnmore" ;
+import DevelopmentTeam from "./HomepageFour/DevelopmentTeam";
 
 const Homepage = () => {
     return(
@@ -23,7 +23,9 @@ const Homepage = () => {
         <div className = "Learn">
             <Learmore/>
         </div>
-
+        <div>
+            <DevelopmentTeam/>
+        </div>
 
         </>
     )

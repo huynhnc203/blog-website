@@ -1,0 +1,13 @@
+.like-button.liked {
+    color: blue;
+}
+
+.bold-text {
+    font-weight: bold;
+    margin-top: -40px;
+    margin-bottom: -20px;
+}
+
+.like-button {
+    width: 100%;
+}
