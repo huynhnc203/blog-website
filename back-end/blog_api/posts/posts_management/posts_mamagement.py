@@ -16,7 +16,7 @@ class Post(Resource):
         if post:
             return post.serialize()
         
-        return {'message': 'Post not found'}, 404
+        return {'message': 'Post not found'}
 
     @login_required
     def post(self, post_id):
@@ -25,7 +25,7 @@ class Post(Resource):
         db.session.add(post)
         db.session.commit()
 
-        return {'message': 'Success post created'}, 201
+        return {'message': 'Success post created'}
 
     @login_required
     def put(self, post_id):
@@ -39,7 +39,7 @@ class Post(Resource):
             db.session.commit()
             return {'message': 'Post update successfully'}
 
-        return {'message': 'Post not found'}, 404
+        return {'message': 'Post not found'}
 
     @admin_required
     def delete(self, post_id):
@@ -49,4 +49,4 @@ class Post(Resource):
             db.session.commit()
             return {'message': 'Post delete successfully'}
        
-        return {'message': 'Post not found'}, 404
+        return {'message': 'Post not found'}
