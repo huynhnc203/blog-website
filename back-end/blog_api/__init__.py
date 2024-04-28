@@ -4,6 +4,7 @@ from flask_login import LoginManager
 from sqlalchemy import URL
 from flask_migrate import Migrate
 from flask_restful import Api
+from flask_cors import CORS
 import blog_api.config as cfg
 import os
 
@@ -27,6 +28,7 @@ url_obj = URL.create(
 
 def create_app(cfg=cfg.Development, alt_config={}):
     app = Flask(__name__)
+    CORS(app)
     app.config.from_object(cfg)
     app.config.update(alt_config)
     if alt_config.get("SQLALCHEMY_DATABASE_URI"):
