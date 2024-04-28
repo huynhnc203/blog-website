@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -31,7 +30,12 @@ function NavBar() {
               <NavDropdown.Item href="#action5">My post</NavDropdown.Item>
             </NavDropdown>
           </Nav>
-          <button type="button" class="btn btn-dark btn-rounded" data-mdb-ripple-init>Sign in</button>
+          <Link to="/LoginForm">
+          <button type="button" class="btn btn-transparent btn-rounded me-2" data-mdb-ripple-init>Login</button>
+          </Link>
+          <Link to="/SignUpForm">
+              <button type="button" class="btn btn-dark btn-rounded me-2" data-mdb-ripple-init>Sign up</button>
+          </Link>
         </Navbar.Collapse>
       </Container>
     </Navbar>
