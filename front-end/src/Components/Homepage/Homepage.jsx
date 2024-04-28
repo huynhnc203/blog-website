@@ -5,6 +5,7 @@ import FeaturePost from "./HomepageTwo/FeaturePost";
 import Learmore from "./HomepageThree/Learnmore" ;
 import DevelopmentTeam from "./HomepageFour/DevelopmentTeam";
 import GridEvaluatePage from "./EvaluatePage/EvaluatePage";
+import Footer from "./Footer/Footer";
 
 const Homepage = () => {
     return(
@@ -29,6 +30,9 @@ const Homepage = () => {
         </div>
         <div>
             <GridEvaluatePage/>
+        </div>
+        <div>
+            <Footer/>
         </div>
 
         </>
