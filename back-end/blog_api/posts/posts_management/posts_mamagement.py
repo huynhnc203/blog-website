@@ -95,7 +95,7 @@ class PostManagement(Resource):
         if post:
             db.session.delete(post)
             db.session.commit()
-            return response_with(resp.SUCCESS_201, value = [posts.serialize() for posts in BlogPost.query.all()])
+            return response_with(resp.SUCCESS_201, value = post.serialize())
        
         return response_with(resp.SERVER_ERROR_404, value="Post not found")
     

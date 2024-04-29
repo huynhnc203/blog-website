@@ -32,9 +32,9 @@ def create_app(cfg=cfg.Development, alt_config={}):
     app = Flask(__name__)
     CORS(app)
     app.config.from_object(cfg)
+    app.config.update(alt_config)
     if alt_config.get("SQLALCHEMY_DATABASE_URI"):
         app.config["SQLALCHEMY_DATABASE_URI"] = alt_config.get("SQLALCHEMY_DATABASE_URI")
-    app.config.update(alt_config)
     @app.after_request
     def add_header(response):
         return response
@@ -60,11 +60,6 @@ def create_app(cfg=cfg.Development, alt_config={}):
 
     return app
 
-def create_db(app):
-    db.init_app(app)
-    with app.app_context():
-        db.create_all()
-    return db
 
 
 
@@ -75,10 +70,13 @@ app = create_app(alt_config={
 migrate = Migrate(app, db)
 login_manager.init_app(app)
 api = Api(app)
-db = create_db(app)
 
 from blog_api.users.management.user_management import UserManagement
 from blog_api.posts.posts_management.posts_mamagement import PostManagement
 
-api.add_resource(UserManagement, "/api/users", "/api/user/<int:id>")
+api.add_resource(UserManagement, "/api/users", "/api/users/<int:id>")
+api.add_resource(PostManagement, "/api/posts", "/api/posts/<int:id>", "/api/posts/<int:page>")
 
+db.init_app(app)
+with app.app_context():
+    db.create_all()
