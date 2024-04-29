@@ -2,6 +2,8 @@ import React from "react";
 import {Flex, Box} from '@chakra-ui/react';
 import './BlogPageContent.css';
 import { FaArrowCircleRight } from "react-icons/fa";
+import CardPostBox from "./CardPost/CardPostBox";
+import { Container, Row , Col } from "react-bootstrap";
 
 
 const Header = () =>{
@@ -32,10 +34,15 @@ const Header = () =>{
 
 const Content = () => {
     return (
-        <Box p="4">
+        <Container>
           <h1>Content</h1>
           <p>This is the content of the page.</p>
-        </Box>
+          <Row>
+             <Col><CardPostBox/></Col>
+             <Col><CardPostBox/></Col>
+             <Col><CardPostBox/></Col>
+          </Row>
+        </Container>
     );
 }
 
