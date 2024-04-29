@@ -4,6 +4,7 @@ import './BlogPageContent.css';
 import { FaArrowCircleRight } from "react-icons/fa";
 import CardPostBox from "./CardPost/CardPostBox";
 import { Container, Row , Col } from "react-bootstrap";
+import  CardPostHorizontal from "./CardPost/CardPostHorizontal";
 
 
 const Header = () =>{
@@ -42,6 +43,14 @@ const Content = () => {
              <Col><CardPostBox/></Col>
              <Col><CardPostBox/></Col>
           </Row>
+          <div>
+            <CardPostHorizontal/>
+            <CardPostHorizontal/>
+            <CardPostHorizontal/>
+            <CardPostHorizontal/>
+            <CardPostHorizontal/>
+            <CardPostHorizontal/>
+          </div>
         </Container>
     );
 }
