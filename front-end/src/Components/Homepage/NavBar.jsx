@@ -19,6 +19,7 @@ function NavBar() {
             navbarScroll
           >
             <Link to="/" className='nav-link'>Homepage</Link>
+            <Link to="/BlogPage" className='nav-link'>Blog</Link>
             <Link to="/Aboutus" className='nav-link'>About us</Link>
             <Link to="/Trending"className='nav-link'>Trending</Link>
             <Link to="/Contact"className='nav-link'>Contact</Link>
