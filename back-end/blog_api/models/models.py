@@ -31,6 +31,20 @@ class Tag(db.Model):
     def __init__(self, name):
         self.name = name
     
+    def serialize(self):
+        return {
+            "id": self.id,
+            "name": self.name
+        }
+
+    def create(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def find_by_tag(cls, tag_name):
+        return cls.query.filter_by(name=tag_name).first()
+
     def __repr__(self):
         return f"<Tag {self.name}>"
 
@@ -53,6 +67,20 @@ class BlogPost(db.Model):
         self.date = date
         self.body = body
         self.author = author
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "title": self.title,
+            "subtitle": self.subtitle,
+            "date": self.date,
+            "body": self.body,
+            "author": self.author.serialize(),
+            "comments": [comment.serialize() for comment in self.comments],
+            "images": [image.url for image in self.images],
+            "tags": [tag.name for tag in self.tags],
+            "likes": self.liked_users.count()
+        }
     
     def __repr__(self):
         return f"<Post {self.title}>"
@@ -110,6 +138,13 @@ class User(db.Model, UserMixin):
     
     def __repr__(self):
         return f"<User {self.name}>" 
+    
+    def serialize(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "email": self.email
+        }
 
 
 class Comment(db.Model):
@@ -125,6 +160,13 @@ class Comment(db.Model):
         self.body = body
         self.author = author
         self.post = post
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "body": self.body,
+            "author": self.author.serialize()
+        }
 
     def __repr__(self):
         return f"<Comment {self.body}>"
