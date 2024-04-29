@@ -2,6 +2,7 @@ import React from "react";
 import { Grid, Box } from "@chakra-ui/react";
 import Sidebar from "../../SideBar/SideBar.tsx"
 
+
 const BlogPage = () => {
     return (
         <div>
