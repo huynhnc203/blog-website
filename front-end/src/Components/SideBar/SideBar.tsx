@@ -39,7 +39,7 @@ const LinkItems: Array<LinkItemProps> = [
 
 export default function Sidebar() {
   return (
-    <Box minH="100vh" bg={useColorModeValue('gray.100', 'gray.900')}>
+    <Box minH="100vh" w = "240px" bg={useColorModeValue('gray.100', 'gray.900')}>
       <SidebarContent/>
     </Box>
   );
