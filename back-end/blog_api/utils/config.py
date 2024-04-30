@@ -1,19 +1,25 @@
-import random
-import string
+import json
 import os
 
-def get_random_string(length):
-    # choose from all lowercase letter
-    letters = string.ascii_lowercase + string.digits + string.ascii_uppercase
-    result_str = ''.join(random.choice(letters) for i in range(length))
-    return result_str
+def get_random_string():
+    return os.urandom(24)
+
+with open(os.path.realpath('.') + '/secret.json', 'r') as f:
+    secret = json.load(f)
 
 class BaseConfig(object):
     """Base configuration."""
-    SECRET_KEY = get_random_string(30)
+    SECRET_KEY = get_random_string()
+    SECURITY_PASSWORD_SALT = get_random_string()
     DEBUG = True
     TESTING = False
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    MAIL_DEFAULT_SENDER = secret['email']
+    MAIL_SERVER = secret['MAIL_SERVER']
+    MAIL_PORT = secret['MAIL_PORT']
+    MAIL_USE_SSL = secret['MAIL_USE_SSL']
+    MAIL_USERNAME = secret['email']
+    MAIL_PASSWORD = secret['password']
 
 class ProductionConfig(BaseConfig):
     """Production configuration."""
@@ -24,4 +30,4 @@ class Development(BaseConfig):
     """Development configuration."""
     DEBUG = True
     TESTING = True
-    SECRET_KEY = get_random_string(30)
+

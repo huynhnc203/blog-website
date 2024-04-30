@@ -107,6 +107,8 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(250), nullable=False)
     posts = relationship("BlogPost", back_populates="author")
     comments = relationship("Comment", back_populates="author")
+    isVerified = db.Column(db.Boolean, default=False)
+
 
     followings = relationship(
         'User', secondary=follow_rel,
@@ -124,6 +126,14 @@ class User(db.Model, UserMixin):
         self.email = email
         self.password = generate_password_hash(password)
 
+    @classmethod
+    def find_by_email(cls, email):
+        return cls.query.filter_by(email=email).first()
+    
+    @classmethod
+    def find_by_name(cls, name):
+        return cls.query.filter_by(name=name).first()
+
     def check_password(self, password):
         return check_password_hash(self.password, password)
     
@@ -135,6 +145,9 @@ class User(db.Model, UserMixin):
     
     def change_password(self, new_password):
         self.password = generate_password_hash(new_password)
+    
+    def set_verified(self):
+        self.isVerified = True
     
     def __repr__(self):
         return f"<User {self.name}>" 
