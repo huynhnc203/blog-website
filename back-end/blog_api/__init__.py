@@ -9,13 +9,10 @@ import blog_api.utils.config as cfg
 import os
 from blog_api.utils.responses import response_with
 import blog_api.utils.responses as resp
-
-app = Flask(__name__)
-
-app.config.from_object(cfg.Development)
+from flask_jwt_extended import JWTManager
+from blog_api.utils.emails import mail
 
 login_manager = LoginManager()
-
 
 db = SQLAlchemy()
 
@@ -60,22 +57,23 @@ def create_app(cfg=cfg.Development, alt_config={}):
 
     return app
 
-
-
-
 app = create_app(alt_config={
     "SQLALCHEMY_DATABASE_URI": url_obj, 
     "LOG_FILE": "application.log"})
 
+mail.init_app(app)
 migrate = Migrate(app, db)
 login_manager.init_app(app)
 api = Api(app)
+jwt = JWTManager(app)
 
 from blog_api.users.management.user_management import UserManagement
 from blog_api.posts.posts_management.posts_mamagement import PostManagement
+from blog_api.users.authenticate.authenticate import auth_blueprint
 
 api.add_resource(UserManagement, "/api/users", "/api/users/<int:id>")
 api.add_resource(PostManagement, "/api/posts", "/api/posts/<int:id>", "/api/posts/<int:page>")
+app.register_blueprint(auth_blueprint, url_prefix="/api/authenticate")
 
 db.init_app(app)
 with app.app_context():

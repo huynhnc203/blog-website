@@ -13,10 +13,10 @@ class TestAPI(BasicTestCase, ABC):
             db.create_all()
         from blog_api.users.management.user_management import UserManagement
         from blog_api.posts.posts_management.posts_mamagement import PostManagement
+        from blog_api.users.authenticate.authenticate import auth_blueprint
         api.add_resource(UserManagement, "/api/users", "/api/user/<int:id>")
         api.add_resource(PostManagement, "/api/posts", "/api/posts/<int:id>")
-        
-
+        self.app.register_blueprint(auth_blueprint, url_prefix="/api/authenticate")
         self.client = self.app.test_client()
 
     def tearDown(self) -> None:
