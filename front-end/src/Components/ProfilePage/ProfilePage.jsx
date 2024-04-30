@@ -1,5 +1,7 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import './ProfilePage.css';
+import { BsPlusCircleDotted } from "react-icons/bs";
 
 const ProfilePage = () => {
     return (
@@ -10,10 +12,6 @@ const ProfilePage = () => {
                     <div className="col-md-4">
                         <div className="profile-img">
                             <img src="phuc.jpg" alt=""/>
-                            <div className="file btn btn-lg btn-primary">
-                                Change Photo
-                                <input type="file" name="file"/>
-                            </div>
                         </div>
                     </div>
                     <div className="col-md-6">
@@ -33,7 +31,7 @@ const ProfilePage = () => {
                         </div>
                     </div>
                     <div className="col-md-2">
-                        <input type="submit" className="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+                       <Link to="/ProfilePageEdit"> <input type="submit" className="profile-edit-btn" name="btnAddMore" value="Edit Profile"/></Link>
                     </div>
                 </div>
                 <div className="row">
@@ -42,7 +40,8 @@ const ProfilePage = () => {
                             <p>Contact</p>
                             <a href="/#">Github</a><br/>
                             <a href="/#">Linked in</a><br/>
-                            <a href="/#">Tinder</a>
+                            <a href="/#">Tinder</a> <br/>
+                            <a href= "/#"><BsPlusCircleDotted style={{display: 'inline'}}/> Add</a><br/>
                             <p>SKILLS</p>
                             <a href="/#">Construc AI model</a><br/>
                             <a href="/#">Web Developer</a><br/>
@@ -55,7 +54,7 @@ const ProfilePage = () => {
                             <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <div className="row">
                                     <div className="col-md-6">
-                                        <label>User Id</label>
+                                        <label>User Id </label>
                                     </div>
                                     <div className="col-md-6">
                                         <p>PhucLeoMec</p>
