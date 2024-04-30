@@ -5,8 +5,10 @@ from sqlalchemy import URL
 from flask_migrate import Migrate
 from flask_restful import Api
 from flask_cors import CORS
-import blog_api.config as cfg
+import blog_api.utils.config as cfg
 import os
+from blog_api.utils.responses import response_with
+import blog_api.utils.responses as resp
 
 app = Flask(__name__)
 
@@ -33,6 +35,9 @@ def create_app(cfg=cfg.Development, alt_config={}):
     app.config.update(alt_config)
     if alt_config.get("SQLALCHEMY_DATABASE_URI"):
         app.config["SQLALCHEMY_DATABASE_URI"] = alt_config.get("SQLALCHEMY_DATABASE_URI")
+    @app.after_request
+    def add_header(response):
+        return response
     if not app.debug:
         import logging
         from logging.handlers import FileHandler
@@ -40,13 +45,21 @@ def create_app(cfg=cfg.Development, alt_config={}):
         app.logger.setLevel(logging.INFO)
         file_handler.setLevel(logging.WARNING)
         app.logger.addHandler(file_handler)
+        @app.errorhandler(500)
+        def server_error(e):
+            logging.error(f"An error occurred during a request. {e}")
+            return response_with(resp.SERVER_ERROR_500)
+        @app.errorhandler(400)
+        def bad_request(e):
+            logging.error(f"A bad request occurred during a request. {e}")
+            return response_with(resp.BAD_REQUEST_400)
+        @app.errorhandler(404)
+        def not_found(e):
+            logging.error(f"A resource was not found during a request. {e}")
+            return response_with(resp.SERVER_ERROR_404)
+
     return app
 
-def create_db(app):
-    db.init_app(app)
-    with app.app_context():
-        db.create_all()
-    return db
 
 
 
@@ -57,9 +70,13 @@ app = create_app(alt_config={
 migrate = Migrate(app, db)
 login_manager.init_app(app)
 api = Api(app)
-db = create_db(app)
 
-from blog_api.users.management.user_management import UserAuthenticate
+from blog_api.users.management.user_management import UserManagement
+from blog_api.posts.posts_management.posts_mamagement import PostManagement
 
-api.add_resource(UserAuthenticate, "/authenticate")
+api.add_resource(UserManagement, "/api/users", "/api/users/<int:id>")
+api.add_resource(PostManagement, "/api/posts", "/api/posts/<int:id>", "/api/posts/<int:page>")
 
+db.init_app(app)
+with app.app_context():
+    db.create_all()

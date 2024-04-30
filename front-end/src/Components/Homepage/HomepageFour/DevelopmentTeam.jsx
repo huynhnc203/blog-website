@@ -14,7 +14,7 @@ const DevelopmentTeam = () => {
         { name: "Huu Phuc", title: phuctitle, github: "@HwuuPhuc0904", hobby1: "football" , hobby2: "coding" , imgsrc : "phuc.jpg" , githublink: "https://github.com/HwuuPhuc0904" , facebooklink: "https://www.facebook.com/profile.php?id=100022445330487"},
         { name: "Cong Huynh", title: huynhtitle,github: "@hcn203204", hobby1: "game" , hobby2: "coding" , imgsrc : "huynh.jpg" , githublink: "https://github.com/hnc203204" , facebooklink: "https://www.facebook.com/Bii.20032306"},
         { name: "Hung Ngo", title: hungtitle,github: "@ngoduchung1801", hobby1: "gym", hobby2: "playgame" , imgsrc: "hunggay.jpg" , githublink: "https://github.com/ngoduchung1801" , facebooklink: "https://www.facebook.com/helios.ndh" },
-        { name: "Truong Nguyen", title: truongtitle,github: "khong", hobby1: "gym" ,hobby2: "music", imgsrc: "truong.jpg" , githublink: "" , facebooklink: "https://www.facebook.com/profile.php?id=100013502353806"},
+        { name: "Truong Nguyen", title: truongtitle,github: "@TruowNguyen", hobby1: "gym" ,hobby2: "music", imgsrc: "truong.jpg" , githublink: "https://github.com/TruowNguyen" , facebooklink: "https://www.facebook.com/profile.php?id=100013502353806"},
       ];
     return(
         <>

@@ -23,6 +23,7 @@ function NavBar() {
             <Link to="/Aboutus" className='nav-link'>About us</Link>
             <Link to="/Trending"className='nav-link'>Trending</Link>
             <Link to="/Contact"className='nav-link'>Contact</Link>
+            <Link to="/ProfilePage"className='nav-link'>Profile</Link>
 
             <NavDropdown title="" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">Notification</NavDropdown.Item>

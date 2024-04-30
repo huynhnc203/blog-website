@@ -6,6 +6,8 @@ import LoginForm from "./Components/LoginForm/LoginForm";
 import NavBar from "./Components/Homepage/NavBar";
 import SignUpForm from "./Components/SignUpForm/SignUpForm";
 import BlogPage from "./Components/Page/BlogPage/BlogPage";
+import Sidebar from "./Components/SideBar/SideBar.tsx";
+import ProfilePage from "./Components/ProfilePage/ProfilePage";
 
 //import cang trang moi vao day
 import AboutUs from './Components/Page/Aboutus';
@@ -29,7 +31,12 @@ function AppContent() {
     if (shouldHideNavbar !== hideNavbar) {
       setHideNavbar(shouldHideNavbar);
     }
+    
+
+
   }, [location.pathname, hideNavbar]);
+
+  
 
   return (
     <div className="App">
@@ -44,6 +51,7 @@ function AppContent() {
         <Route path="/LoginForm" element={<LoginForm />} />
         <Route path="/SignUpForm" element={<SignUpForm/>} />
         <Route path="/BlogPage" element={<BlogPage />} />
+        <Route path="/ProfilePage" element={<ProfilePage />} />
       </Routes>
     </div>
   );
