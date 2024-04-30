@@ -8,6 +8,7 @@ import SignUpForm from "./Components/SignUpForm/SignUpForm";
 import BlogPage from "./Components/Page/BlogPage/BlogPage";
 import Sidebar from "./Components/SideBar/SideBar.tsx";
 import ProfilePage from "./Components/ProfilePage/ProfilePage";
+import ProfilePageEdit from "./Components/ProfilePage/ProfilePageEdit";
 
 //import cang trang moi vao day
 import AboutUs from './Components/Page/Aboutus';
@@ -52,6 +53,7 @@ function AppContent() {
         <Route path="/SignUpForm" element={<SignUpForm/>} />
         <Route path="/BlogPage" element={<BlogPage />} />
         <Route path="/ProfilePage" element={<ProfilePage />} />
+        <Route path="/ProfilePageEdit" element={<ProfilePageEdit />} />
       </Routes>
     </div>
   );
