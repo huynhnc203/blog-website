@@ -6,6 +6,7 @@ import LoginForm from "./Components/LoginForm/LoginForm";
 import NavBar from "./Components/Homepage/NavBar";
 import SignUpForm from "./Components/SignUpForm/SignUpForm";
 import BlogPage from "./Components/Page/BlogPage/BlogPage";
+import Sidebar from "./Components/SideBar/SideBar.tsx";
 
 //import cang trang moi vao day
 import AboutUs from './Components/Page/Aboutus';
@@ -29,7 +30,12 @@ function AppContent() {
     if (shouldHideNavbar !== hideNavbar) {
       setHideNavbar(shouldHideNavbar);
     }
+    
+
+
   }, [location.pathname, hideNavbar]);
+
+  
 
   return (
     <div className="App">

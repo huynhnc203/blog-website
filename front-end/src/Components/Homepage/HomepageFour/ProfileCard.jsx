@@ -43,10 +43,10 @@ import {
               right: 3,
             }}
           />
-          <Heading fontSize={'2xl'} fontFamily={'body'}>
+          <Heading fontSize={'2xl'} fontFamily={'body'} textAlign="center">
             {name}
           </Heading>
-          <Text fontWeight={600} color={'gray.500'} mb={4}>
+          <Text fontWeight={600} color={'gray.500'} mb={4} textAlign="center">
             {github}
           </Text>
           <Text
