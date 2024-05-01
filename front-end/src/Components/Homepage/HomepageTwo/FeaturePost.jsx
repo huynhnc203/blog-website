@@ -6,7 +6,7 @@ const FeaturePost = () => {
     return (
         <Container>
             <div className='Title'>
-                <h2>Featured Posts</h2>
+                <h2 style={{ marginRight: '960px' }}>Featured Posts</h2>
             </div>
             <Row>
                 <Col><CardBlog /></Col>
