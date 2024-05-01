@@ -6,6 +6,7 @@ import Learmore from "./HomepageThree/Learnmore";
 import DevelopmentTeam from "./HomepageFour/DevelopmentTeam";
 import GridEvaluatePage from "./EvaluatePage/EvaluatePage";
 import Footer from "./Footer/Footer";
+import ScrollUpButton from "./ScrollUpButton";
 
 const Homepage = () => {
     return (
@@ -34,7 +35,11 @@ const Homepage = () => {
             <div>
                 <Footer />
             </div>
+<<<<<<< Updated upstream
 
+=======
+            <ScrollUpButton />
+>>>>>>> Stashed changes
         </>
     )
 }
