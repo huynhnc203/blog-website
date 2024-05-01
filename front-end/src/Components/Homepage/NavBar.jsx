@@ -10,7 +10,7 @@ function NavBar() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
-        <Navbar.Brand href="#"><img src='logo.png' style={{height : "50px" , width :"150px"}}></img></Navbar.Brand>
+        <Navbar.Brand href="#"><img src='logo.png' style={{ height: "50px", width: "150px" }}></img></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -21,9 +21,10 @@ function NavBar() {
             <Link to="/" className='nav-link'>Homepage</Link>
             <Link to="/BlogPage" className='nav-link'>Blog</Link>
             <Link to="/Aboutus" className='nav-link'>About us</Link>
-            <Link to="/Trending"className='nav-link'>Trending</Link>
-            <Link to="/Contact"className='nav-link'>Contact</Link>
-            <Link to="/ProfilePage"className='nav-link'>Profile</Link>
+            <Link to="/Trending" className='nav-link'>Trending</Link>
+            <Link to="/Contact" className='nav-link'>Contact</Link>
+            <Link to="/ProfilePage" className='nav-link'>Profile</Link>
+            <Link to="/ProfilePage" className='nav-link'>Profile</Link>
 
             <NavDropdown title="" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">Notification</NavDropdown.Item>
@@ -33,10 +34,10 @@ function NavBar() {
             </NavDropdown>
           </Nav>
           <Link to="/LoginForm">
-          <button type="button" class="btn btn-transparent btn-rounded me-2" data-mdb-ripple-init>Login</button>
+            <button type="button" class="btn btn-transparent btn-rounded me-2" data-mdb-ripple-init>Login</button>
           </Link>
           <Link to="/SignUpForm">
-              <button type="button" class="btn btn-dark btn-rounded me-2" data-mdb-ripple-init>Sign up</button>
+            <button type="button" class="btn btn-dark btn-rounded me-2" data-mdb-ripple-init>Sign up</button>
           </Link>
         </Navbar.Collapse>
       </Container>
