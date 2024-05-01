@@ -1,10 +1,10 @@
 .title h2 {
     text-align: center;
-    margin : 30px;
+    margin-top: 10px;
+    margin-bottom: 40px;
     color: white;
 }
 
-.list-card{
-    margin-bottom: 30px;
+.list-card {
+    margin-bottom: 40px;
 }
-
