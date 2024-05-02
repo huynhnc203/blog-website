@@ -16,6 +16,9 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
+        sudo apt update  # Update package index
+        sudo apt install -y apache2  # Install Apache HTTP Server
+        sudo ufw allow 'Apache'  # Allow HTTP traffic through the firewall
         python -m pip install --upgrade pip
         pip install pylint
         pip install -r back-end/requirements.txt
