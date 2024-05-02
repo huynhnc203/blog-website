@@ -1,4 +1,5 @@
 from flask_restful import Resource, reqparse
+from flask_paginate import Pagination
 from blog_api import db
 from blog_api.models.models import Comment
 from blog_api.utils.responses import response_with
@@ -20,13 +21,23 @@ class CommentManagement(Resource):
     """Comment management resource."""
 
     def get(self, id=None):
-        if id:
-            comment = Comment.query.get(id)
-            if comment:
-                return response_with(resp.SUCCESS_200, value=comment.serialize())
+        args = parser.parse_args()
+        page = args.get('page', 1)
+        per_page = args.get('per_page', 10)
+        
+        comments = Comment.query.paginate(page=page, per_page=per_page, error_out=False)
+
+        if not comments.items:
             return response_with(resp.SERVER_ERROR_404, value="Comment not found")
-        comments = Comment.query.all()
-        return response_with(resp.SUCCESS_200, value=[comment.serialize() for comment in comments])
+        pagination = {
+            'total_pages': comments.page,
+            'total_comments': comments.total,
+            'current_page': comments.page,
+            'next_page': comments.next_num if comments.has_next else None,
+            'prev_page': comments.prev_num if comments.has_prev else None,
+            'per_page': per_page
+        }
+        return response_with(resp.SUCCESS_200, value=[comment.serialize() for comment in comments.items], pagination=pagination)
 
     def post(self):
         args = parser.parse_args()
