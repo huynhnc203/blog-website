@@ -24,6 +24,7 @@ function NavBar() {
             <Link to="/Trending" className='nav-link'>Trending</Link>
             <Link to="/Contact" className='nav-link'>Contact</Link>
             <Link to="/ProfilePage" className='nav-link'>Profile</Link>
+            <Link to="/ProfilePage" className='nav-link'>Profile</Link>
 
             <NavDropdown title="" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">Notification</NavDropdown.Item>

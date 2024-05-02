@@ -6,29 +6,12 @@ import { BiLike, BiChat, BiShare } from "react-icons/bi";
 import { Image } from "@chakra-ui/react";
 
 const CardBlog = () => {
-    const [isUserHover, setIsUserHover] = useState(false);
-    const [likeCount, setLikeCount] = useState(0);
-    const [liked, setLiked] = useState(false);
-
-    const handleUserHover = () => {
-        setIsUserHover(!isUserHover);
-    };
-
-    const handleLikeClick = () => {
-        if (!liked) {
-            setLikeCount(likeCount + 1);
-            setLiked(true);
-        } else {
-            setLikeCount(likeCount - 1);
-            setLiked(false);
-        }
-    };
     return (
         <Card maxW='md'>
             <CardHeader>
                 <Flex spacing='4'>
                     <Flex flex='1' gap='4' alignItems='center' flexWrap='wrap'>
-                        <Avatar name='Hung' src='hung.jpg' style={{ marginTop: '-20px' }} />
+                        <Avatar name='Hung' src='hunggay.jpg' />
 
                         <Box>
                             <Heading
@@ -50,16 +33,9 @@ const CardBlog = () => {
                 </Flex>
             </CardHeader>
             <CardBody>
-                <Text
-                    style={{ marginTop: '-60px', marginBottom: '40px' }}
-                    className="bold-text"
-                    color='Black'
-                    fontSize='20px'>
-                    Lời giới thiệu
-                </Text>
-                <Text style={{ marginTop: '-40px', marginBottom: '0px' }}>
-                    Tôi là một developer chuyên nghiệp, tiếng anh thành thạo hi, hello, sở thích nghe nhạc vàng và ngồi hát.
-                    Trang web đỉnh của chóp do Phúc và tôi - đẹp trai vĩ đại xây dựng này thực sự rất tốt rất tốt.
+                <Text>
+                    Tôi là một deverlopber chuyên nghiệp, tiếng anh thành thạo hi, hello, sở thích nghe nhạc dzz và ngồi hát.
+                    Trang web đỉnh của chóp do Phúc đẹp trai vĩ đại xây dựng này thực sự ấn tượng đối với tôi.
                     Một trang web mang đầy đủ tinh hoa của một svip.
                 </Text>
             </CardBody>
