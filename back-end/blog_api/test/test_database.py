@@ -1,6 +1,10 @@
 from blog_api.test.basic_test import BasicTestCase
-from blog_api.models.models import User, BlogPost, Comment, Image, Tag
+from blog_api.models.user_model import User
+from blog_api.models.posts_model import BlogPost, Image
+from blog_api.models.tags_model import Tag
+from blog_api.models.comments_model import Comment
 from blog_api import db
+from datetime import datetime
 
 class DatabaseTestCase(BasicTestCase):
     def setUp(self) -> None:
@@ -18,7 +22,8 @@ class DatabaseTestCase(BasicTestCase):
                 user = User(
                     name=f"test{i}",
                     email=f"test{i}@gmail.com",
-                    password="password")
+                    password="password",
+                    created_at=datetime.now())
                 
                 db.session.add(user)
                 db.session.commit()
@@ -39,9 +44,9 @@ class DatabaseTestCase(BasicTestCase):
                 post = BlogPost(
                     title=f"test{i}",
                     subtitle=f"test{i}",
-                    date=f"test{i}",
                     body=f"test{i}",
-                    author=author)
+                    author=author,
+                    date=datetime.now())
                 db.session.add(post)
                 db.session.commit()
             posts = BlogPost.query.all()
@@ -49,7 +54,6 @@ class DatabaseTestCase(BasicTestCase):
             for i in range(10):
                 self.assertEqual(posts[i].title, f"test{i}")
                 self.assertEqual(posts[i].subtitle, f"test{i}")
-                self.assertEqual(posts[i].date, f"test{i}")
                 self.assertEqual(posts[i].body, f"test{i}")
                 self.assertEqual(posts[i].author_id, i+1)
 
@@ -63,7 +67,8 @@ class DatabaseTestCase(BasicTestCase):
                 comment = Comment(
                     body=f"test{i}",
                     author=author,
-                    post=post)
+                    post=post,
+                    create_at=datetime.now())
                 
                 db.session.add(comment)
                 db.session.commit()
@@ -107,6 +112,7 @@ class DatabaseTestCase(BasicTestCase):
             self.assertEqual(len(tags), 10)
             for i in range(10):
                 self.assertEqual(tags[i].name, f"test{i}")
+                self.assertEqual(tags[i].posts.count(), 0)
 
     def test_follow_relationships(self):
         self.test_users()
@@ -114,8 +120,7 @@ class DatabaseTestCase(BasicTestCase):
             for i in range(1, 10):
                 follower = User.query.get(i)
                 followed = User.query.get(i + 1)
-                follower.followings.append(followed)  
-                followed.followers.append(follower)  
+                follower.follow(followed)
                 db.session.commit()
             users = User.query.all()
             for i in range(1, 10):
@@ -129,13 +134,17 @@ class DatabaseTestCase(BasicTestCase):
             for i in range(1, 10):
                 user = User.query.get(i)
                 post = BlogPost.query.get(i)
-                user.liked_posts.append(post)
-                post.liked_users.append(user)
+                user.like_post(post)
                 db.session.commit()
             
             users = User.query.all()
             for i in range(1, 10):
                 self.assertEqual(users[i-1].liked_posts[0].id, i)
+
+            user = User.query.get(1)
+            post = BlogPost.query.get(1)
+            user.delete()
+            self.assertEqual(post.liked_users.count(), 0)
 
     def test_tag_relationships(self):
         self.test_posts()
