@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_jwt_extended import create_access_token
-from blog_api.models.models import User
+from blog_api.models.user_model import User
 from blog_api.utils.responses import response_with
 import blog_api.utils.responses as resp
 import logging
