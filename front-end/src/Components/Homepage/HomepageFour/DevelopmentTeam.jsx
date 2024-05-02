@@ -20,11 +20,7 @@ const DevelopmentTeam = () => {
         <>
             <Container>
                 <div className="word">
-<<<<<<< Updated upstream
-                    <h1>Development Team</h1>
-=======
                     <h1 style={{ color: "black" }}>Development Team</h1>
->>>>>>> Stashed changes
                 </div>
                 <div>
                     <Row>
