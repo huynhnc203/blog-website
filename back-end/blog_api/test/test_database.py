@@ -67,8 +67,7 @@ class DatabaseTestCase(BasicTestCase):
                 comment = Comment(
                     body=f"test{i}",
                     author=author,
-                    post=post,
-                    create_at=datetime.now())
+                    post=post)
                 
                 db.session.add(comment)
                 db.session.commit()

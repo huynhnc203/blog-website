@@ -1,5 +1,5 @@
 from blog_api.test.test_api import TestAPI
-from blog_api import login_manager, db
+from blog_api import db
 from flask_restful import Api
 import os
 import json
@@ -27,7 +27,7 @@ class TestAuthenticate(TestAPI):
     def test_user_login(self):
         self.test_user_registration()
         response = self.client.post(
-            "/api/authenticate/login",
+            "/api/authenticate/login/3",
             data=json.dumps({
                 "email": "ibow2036@gmail.com",
                 "password": "password"
