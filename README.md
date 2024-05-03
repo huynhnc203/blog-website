@@ -60,8 +60,13 @@ python main.py
 
 
 ## Deploy the backend:
+
 `python3 -m venv my_venv`
+
 `source my_venv/bin/activate`
+
 `pip install requirements.txt`
+
 `mod_wsgi-express start-server wsgi.py --processes 4`
+
 `python3 ./add_database/import_database`
