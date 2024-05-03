@@ -1,7 +1,23 @@
 import React from 'react';
 import './CardPostHorizontal.css';
+import { useState, useEffect } from 'react';
 
-const blogpostcardhorizontal = () => {
+
+const CardPostHorizontal= () => {
+
+  const [allPosts, setAllPosts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const getAllPost = async () => {
+    let res = await fetch('http://localhost:8000/api/posts');
+    let data = await res.json();
+    setAllPosts(data['data']);
+    setIsLoading(false);
+  };
+  useEffect(() => {
+    getAllPost();
+  }, []);
+
   return (
     <>
     <div className="blogpostcardhorizontal mt-5">
@@ -22,7 +38,7 @@ const blogpostcardhorizontal = () => {
               </span>
             </div>
             <div className="blog-card__info">
-              <h5>ĐÂY LÀ CHỖ ĐỂ TITLE</h5>
+              <h5>{isLoading ? "Main title" : allPosts[0]['title']}</h5>
               <p>
                 <a href="#" className="icon-link mr-3"><i className="fa fa-pencil-square-o"></i>Phuc dep trai</a>
               </p>
@@ -44,4 +60,4 @@ const blogpostcardhorizontal = () => {
   );
 }
 
-export default blogpostcardhorizontal;
+export default CardPostHorizontal;

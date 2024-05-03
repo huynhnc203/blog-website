@@ -23,6 +23,24 @@ const LoginForm = () => {
   const handlSignIn = () => {
     console.log(`test email : ${email}`)
     console.log(`test password : ${password}`)
+    const body = {
+      email: email,
+      password: password
+    }
+    fetch("http://localhost:8000/authenticate", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Type-Post': 'Login'
+      },
+      body: JSON.stringify(body)
+    })
+    .then(response => {
+      console.log(response.json())
+    })
+    .catch(error => {
+      console.log(error)
+    });
   }
 
   return (

@@ -35,11 +35,8 @@ const Homepage = () => {
             <div>
                 <Footer />
             </div>
-<<<<<<< Updated upstream
 
-=======
             <ScrollUpButton />
->>>>>>> Stashed changes
         </>
     )
 }
