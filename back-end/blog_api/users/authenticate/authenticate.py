@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from flask_jwt_extended import create_access_token
+from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity, set_access_cookies, unset_jwt_cookies
 from blog_api.models.user_model import User
 from blog_api.utils.responses import response_with
 import blog_api.utils.responses as resp
@@ -22,7 +22,28 @@ def login():
             return response_with(resp.UNAUTHORIZED_403, value={"error": "Invalid password"})
         
         access_token = create_access_token(identity=user.id)
+        set_access_cookies(response, access_token)
         return response_with(resp.SUCCESS_200, value={"access_token": access_token})
+    except Exception as e:
+        logging.error(e)
+        return response_with(resp.SERVER_ERROR_500)
+    
+@auth_blueprint.route("/current_user", methods=["GET", "POST"])
+@jwt_required(locations=["headers", "cookies"])
+def current_user():
+    try:
+        user = User.query.get(get_jwt_identity())
+        return response_with(resp.SUCCESS_200, value={"user": user.serialize()})
+    except Exception as e:
+        logging.error(e)
+        return response_with(resp.SERVER_ERROR_500)
+
+@auth_blueprint.route("/logout", methods=["POST"])
+@jwt_required(locations=["headers", "cookies"])
+def logout():
+    try:
+        unset_jwt_cookies()
+        return response_with(resp.SUCCESS_200, value={"message": "Successfully logged out"})
     except Exception as e:
         logging.error(e)
         return response_with(resp.SERVER_ERROR_500)

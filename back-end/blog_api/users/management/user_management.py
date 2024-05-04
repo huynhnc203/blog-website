@@ -8,7 +8,6 @@ import logging
 from blog_api.utils.token import generate_verification_token
 from blog_api.utils.emails import send_email
 from datetime import datetime
-from flask_jwt_extended import jwt_required
 
 parser = reqparse.RequestParser()
 parser.add_argument("email", type=str, required=True)
