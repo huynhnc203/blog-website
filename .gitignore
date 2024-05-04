@@ -200,3 +200,4 @@ yarn-error.log*
 # Add package-lock.json here
 package-lock.json
 secret.json
+my_venv/
