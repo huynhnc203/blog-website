@@ -4,7 +4,7 @@ import { Skeleton} from '@chakra-ui/react'
 import { useState } from 'react';
 import { FaRegUserCircle } from "react-icons/fa";
 
-const CardPostHorizontal = ({key ,load , name , title , subtitle , description}) => {
+const CardPostHorizontal = ({key ,load , name , title , subtitle , description , date}) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const setload= (load) =>{
     setIsLoaded(load)
@@ -28,8 +28,7 @@ const CardPostHorizontal = ({key ,load , name , title , subtitle , description})
             </div>
             <div className="blog-card__head">
               <span className="date__box">
-                <span className="date__day">11</span>
-                <span className="date__month">JAN</span>
+                <span className="date__day">{date}</span>
               </span>
             </div>
             <div className="blog-card__info">
