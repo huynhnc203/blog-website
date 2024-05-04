@@ -35,7 +35,7 @@ const TrendingPost = () => {
             <CardHeader>
                 <Flex justifyContent="space-between" alignItems="center">
                     <Flex alignItems="center" gap="4">
-                        <Avatar name="Hung" src="hunggay.jpg" style={{ marginTop: "-8px" }} />
+                        <Avatar name="Hung" src="hung.jpg" style={{ marginTop: "-8px" }} />
                         <Box>
                             <Heading
                                 onMouseEnter={handleUserHover}

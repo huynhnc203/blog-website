@@ -28,8 +28,9 @@
     display: inline-block;
     background-color: #ffffff;
     padding: 5px 10px;
-    border-radius: 3px;
-    margin-right: 10px;
+    border-radius: 8px;
+    margin-right: 5px;
+    margin-top: 5px;
   }
   
   .date__day {
@@ -37,12 +38,7 @@
     font-size: 18px;
     font-weight: bold;
   }
-  
-  .date__month {
-    color: #000000;
-    font-size: 14px;
-  }
-  
+    
   .blog-card__info {
     padding: 20px;
   }
@@ -95,3 +91,4 @@
     font-size: 18px;
     color: #000000;
   }
+

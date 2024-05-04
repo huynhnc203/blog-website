@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
 import {
   Box,
   Heading,
@@ -10,9 +11,21 @@ import {
   HStack,
 } from '@chakra-ui/react';
 import { BsArrowUpRight, BsHeartFill, BsHeart } from 'react-icons/bs';
+import { Skeleton } from '@chakra-ui/react';
+import { Spinner } from '@chakra-ui/react'
 
-const  CardPostBox =() => {
+const  CardPostBox =({key,load, name , title, subtitle, description}) => {
   const [liked, setLiked] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  const setload = (load) => {
+    setIsLoaded(load);
+  };
+  
+  useEffect(() => {
+    setload(load)
+  }, [load])
+  
 
   return (
     <Center py={6}>
@@ -26,9 +39,10 @@ const  CardPostBox =() => {
         borderColor="black"
         boxShadow={useColorModeValue('6px 6px 0 black', '6px 6px 0 cyan')}>
         <Box h={'200px'} borderBottom={'1px'} borderColor="black">
+          {isLoaded ?  
           <Img
             src={
-              'https://images.unsplash.com/photo-1542435503-956c469947f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80'
+              'huynh.jpg'
             }
             roundedTop={'sm'}
             objectFit="cover"
@@ -36,6 +50,12 @@ const  CardPostBox =() => {
             w="full"
             alt={'Blog Image'}
           />
+          : 
+         
+          <Spinner/>
+        
+            
+          } 
         </Box>
         <Box p={4}>
           <Box
@@ -44,17 +64,23 @@ const  CardPostBox =() => {
             py={1}
             color="whrite"
             mb={2}>
+            <Skeleton isLoaded={isLoaded}>
             <Text fontSize={'xs'} fontWeight="medium" color={'green'}>
-              Front-end
+              {subtitle}
             </Text>
+            </Skeleton>
           </Box>
+          <Skeleton isLoaded={isLoaded}>
           <Heading color={'black'} fontSize={'2xl'} /*gioi han so dong hien thi*/ noOfLines={1}>
-            React v18.0
+            {title}
           </Heading>
+          </Skeleton>
+          <Skeleton isLoaded={isLoaded}>
           <Text color={'gray.500'} noOfLines={2}>
             {/* chỗ để title */}
-            Bài viết hay về reac , thú vị và nhiều thứ khàm phá quá tuyệt vời
+            {description}
           </Text>
+          </Skeleton>
         </Box>
         <HStack borderTop={'1px'} color="black">
           <Flex

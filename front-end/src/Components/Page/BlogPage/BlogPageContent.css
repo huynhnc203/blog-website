@@ -3,6 +3,7 @@
     margin-top: 120px;
 }
 
+
 .thumbnail {
     float: left;
     position: relative;
@@ -86,3 +87,26 @@ p {
     justify-content: center;
     align-items: center;
 }
+
+.button__loadmore {
+    width : 50px;
+    height: 50px;
+    margin-top: -60px;
+    margin-left: 900px;
+    border-radius:50px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.5;
+    transition: width 1s, height 1s, opacity 0.5s; 
+}
+
+.button__loadmore:hover {
+    opacity: 1;
+    width: 80px;
+    height: 80px;
+}
+
+
