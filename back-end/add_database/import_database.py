@@ -1,32 +1,31 @@
-import requests
-import json
+"""
+Module docstring: This module imports data from a JSON file and adds it to a database.
+"""
 
-with open("data.json", "r") as f:
+import json
+import requests
+
+with open("data.json", "r", encoding="utf-8") as f:
     resp = json.load(f)
 
+users = requests.get('http://localhost:8000/api/users', timeout=10)
 
 users = json.loads(users.content)
-
-print(users)
-
 for post in resp:
-    author_id = None
+    found_author_id = None
     for user in users['data']:
         if user['email'] == post['user']['email']:
-            author_id = user['id']
+            found_author_id = user['id']
             break
-    if author_id:
+    if found_author_id:
         body = {
             "title" : post["title"],
             "subtitle" : "Technology lead",
             "body" : post["content"],
-            "author_id" : author_id
+            "author_id" : found_author_id
         }
-        #run the server before running this script
         response = requests.post('http://localhost:8000/api/posts',
                                  data=json.dumps(body),
-                                 headers={"Content-Type" : "application/json"})
+                                 headers={"Content-Type" : "application/json"}, 
+                                 timeout=10)
         print(response.content)
-
-
-

@@ -13,7 +13,6 @@ const CardPostHorizontal = ({key ,load , name , title , subtitle , description})
     setload(load)
   }, [load])
 
-
   return (
     <>
     <div className="blogpostcardhorizontal mt-5">
@@ -66,6 +65,5 @@ const CardPostHorizontal = ({key ,load , name , title , subtitle , description})
 
     </>
   );
-}
-
-export default CardPostHorizontal;
+  }
+export default CardPostHorizontal ;

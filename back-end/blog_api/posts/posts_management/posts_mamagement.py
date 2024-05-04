@@ -134,7 +134,6 @@ class PostManagement(Resource):
                         return response_with(resp.SERVER_ERROR_404, value="User not found")
                     post.author = author
                 if args['tags']:
-                    post.tags.clear()
                     for t in args['tags']:
                         tag = Tag.find_by_tag(t)
                         if not tag:

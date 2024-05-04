@@ -24,7 +24,7 @@ def login():
         access_token = create_access_token(identity=user.id)
         return response_with(resp.SUCCESS_200, value={"access_token": access_token})
     except Exception as e:
-        logging(e)
+        logging.error(e)
         return response_with(resp.SERVER_ERROR_500)
     
 @auth_blueprint.route("/confirm/<token>", methods=["GET"])
@@ -38,6 +38,6 @@ def confirm_email(token):
         db.session.commit()
         return response_with(resp.SUCCESS_200, value={"message": "Email confirmed"})
     except Exception as e:
-        logging(e)
+        logging.error(e)
         return response_with(resp.SERVER_ERROR_500)
 

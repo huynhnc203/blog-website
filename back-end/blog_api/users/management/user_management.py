@@ -98,7 +98,7 @@ class UserManagement(Resource):
     
     def patch(self, id):
         try:
-            args = parser.parse_args()
+            args = patch_parser.parse_args()
             user = User.query.get(id)
             if user:
                 if args["name"]:
