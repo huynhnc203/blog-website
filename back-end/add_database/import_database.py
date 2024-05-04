@@ -4,9 +4,10 @@ import json
 with open("data.json", "r") as f:
     resp = json.load(f)
 
-users = requests.get('http://localhost:8000/api/users')
 
 users = json.loads(users.content)
+
+print(users)
 
 for post in resp:
     author_id = None

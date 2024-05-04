@@ -1,25 +1,19 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import {
-  IconButton,
   Box,
   CloseButton,
   Flex,
   Icon,
   useColorModeValue,
-  Drawer,
-  DrawerContent,
   Text,
-  useDisclosure,
-  BoxProps,
   FlexProps,
 } from '@chakra-ui/react';
 import {
   FiHome,
   FiTrendingUp,
   FiCompass,
-  FiStar,
-  FiSettings,
-  FiMenu,
+  FiEdit3,
+  FiBell,
 } from 'react-icons/fi';
 import { IconType } from 'react-icons';
 import { ReactText } from 'react';
@@ -34,8 +28,8 @@ const LinkItems: Array<LinkItemProps> = [
   { name: 'Home', icon: FiHome, path: '/'},
   { name: 'Trending', icon: FiTrendingUp, path: '/Trending'},
   { name: 'Explore', icon: FiCompass, path: '/AboutUs' },
-  { name: 'Write', icon: FiStar, path: '/write' },
-  { name: 'Notification', icon: FiSettings, path: '/Notification' },
+  { name: 'Write', icon: FiEdit3, path: '/write' },
+  { name: 'Notification', icon: FiBell, path: '/Notification' },
 ];
 
 export default function Sidebar() {
