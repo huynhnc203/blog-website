@@ -5,9 +5,12 @@ import { FaArrowCircleRight } from "react-icons/fa";
 import CardPostBox from "./CardPost/CardPostBox";
 import { Container, Row , Col } from "react-bootstrap";
 import  CardPostHorizontal from "./CardPost/CardPostHorizontal";
+import { useEffect, useState  } from "react";
+
 
 
 const Header = () =>{
+    
     return (
         <>
         <h1>News</h1>
@@ -33,7 +36,23 @@ const Header = () =>{
     );
 }
 
+
 const Content = () => {
+    const [isLoaded, setIsLoaded] = useState(false)
+    const [allPosts, setAllPosts] = useState([])
+
+    const getAllPosts = async () => {
+    let res = await fetch('http://localhost:8000/api/posts')
+    let data = await res.json()
+    setAllPosts(data['data'])
+    setIsLoaded(true)
+  }
+  useEffect(() => {
+    getAllPosts()
+  }, [])
+  
+  const maxLength = 200
+
     return (
         <Container>
           <h1>Content</h1>
@@ -44,13 +63,28 @@ const Content = () => {
              <Col><CardPostBox/></Col>
           </Row>
           <div>
-            <CardPostHorizontal/>
-            <CardPostHorizontal/>
-            <CardPostHorizontal/>
-            <CardPostHorizontal/>
-            <CardPostHorizontal/>
-            <CardPostHorizontal/>
-          </div>
+          {isLoaded ? allPosts.slice(0, 6).map((post, index) => (
+            <CardPostHorizontal 
+            key = {index}
+            load = {isLoaded}
+            name = {post.author.name}
+            title = {post.title}
+            subtitle = {post.subtitle} 
+            description = {post.body.length > maxLength ? post.body.substring(0, maxLength) + "..." : post.body}
+             />
+            )) : 
+                Array(6).fill().map((_, index) => (
+                    <CardPostHorizontal 
+                    key = {index}
+                    isLoaded = {isLoaded}
+                    name = "chua co"
+                    title = "chua co"
+                    subtitle = "chua co"
+                    />
+                
+            ))
+            }
+        </div>
         </Container>
     );
 }

@@ -44,23 +44,25 @@
   }
   
   .blog-card__info {
-    padding: 30px;
+    padding: 20px;
   }
   
   .blog-card__info h5 {
-    font-size: 22px;
-    margin-bottom: 10px;
+    font-size: 25px;
     color: #000000;
   }
   
   .blog-card__info p {
-    margin-bottom: 15px;
-    color: #666666;
+    margin-top: 5px ;
+    margin-bottom: 10px;
+    color: #39ff40;
+    font-size: 18px;
   }
   
   .icon-link {
-    color: #666666;
+    color: #494848;
     text-decoration: none;
+    font-size: 15px;
   }
   
   .icon-link:hover {
@@ -89,3 +91,7 @@
     margin-right: 5px;
   }
   
+  .blog-card__info .des {
+    font-size: 18px;
+    color: #000000;
+  }

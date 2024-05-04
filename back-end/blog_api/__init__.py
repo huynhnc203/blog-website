@@ -23,7 +23,7 @@ db = SQLAlchemy()
 
 url_obj = URL.create(
     "postgresql",
-    username=os.getenv("username"),
+    username=os.getenv("username", "postgres"),
     password=os.getenv("password"),
     host="localhost",
     port=5432,

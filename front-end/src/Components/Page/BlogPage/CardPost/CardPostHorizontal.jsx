@@ -1,22 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './CardPostHorizontal.css';
-import { useState, useEffect } from 'react';
+import { Skeleton} from '@chakra-ui/react'
+import { useState } from 'react';
+import { FaRegUserCircle } from "react-icons/fa";
 
-
-const CardPostHorizontal= () => {
-
-  const [allPosts, setAllPosts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  const getAllPost = async () => {
-    let res = await fetch('http://localhost:8000/api/posts');
-    let data = await res.json();
-    setAllPosts(data['data']);
-    setIsLoading(false);
-  };
+const CardPostHorizontal = ({key ,load , name , title , subtitle , description}) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const setload= (load) =>{
+    setIsLoaded(load)
+  }
   useEffect(() => {
-    getAllPost();
-  }, []);
+    setload(load)
+  }, [load])
 
   return (
     <>
@@ -38,18 +33,30 @@ const CardPostHorizontal= () => {
               </span>
             </div>
             <div className="blog-card__info">
-              <h5>{isLoading ? "Main title" : allPosts[0]['title']}</h5>
-              <p>
-                <a href="#" className="icon-link mr-3"><i className="fa fa-pencil-square-o"></i>Phuc dep trai</a>
-              </p>
-              <p>Phúc, với gương mặt đẹp trai và ánh mắt sâu thẳm, luôn tỏ ra lịch lãm và quyến rũ. Anh ta tỏa ra sự tự tin và sự thu hút tự nhiên khiến mọi người không thể rời mắt khỏi anh. Bên cạnh vẻ ngoài hấp dẫn, Phúc còn là người có tâm hồn đẹp và sự ấm áp trong cách giao tiếp, tạo nên sự gần gũi và dễ mến đối với mọi người xung quanh.</p>
+              <Skeleton isLoaded = {isLoaded}>
+                <h5>{title}</h5>
+              </Skeleton>
+              <Skeleton isLoaded = {isLoaded}>
+                <p>{subtitle}</p>
+              </Skeleton>
+              <Skeleton isLoaded = {isLoaded}>
+                <p>
+                  <a href="#" className="icon-link mr-3"> <FaRegUserCircle size='20px' /> {name}</a>
+                </p>
+              </Skeleton>
+              <Skeleton isLoaded = {isLoaded}>
+                <p class='des'>{description}</p>
+              </Skeleton>
+              <Skeleton isLoaded = {isLoaded}>
               <a href="#" className="buttonreadmore"><i className="btn-icon fa fa-long-arrow-right"></i>READ MORE</a>
+              </Skeleton>
             </div>
+            
           </article>
+          
         </div>
       </div>
     </div>
-
     <section className="detail-page">
       <div className="container mt-5">
         
@@ -58,6 +65,5 @@ const CardPostHorizontal= () => {
 
     </>
   );
-}
-
-export default CardPostHorizontal;
+  }
+export default CardPostHorizontal ;
