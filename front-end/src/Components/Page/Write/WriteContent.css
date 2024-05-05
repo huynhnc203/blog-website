@@ -1,0 +1,86 @@
+.input__write{
+    padding:50px 50px;
+    margin-top: 30px; 
+}
+
+.input__Title{
+    margin-bottom: 20px;
+}
+
+.input__Tag{
+    margin-bottom: 20px;
+}
+
+.input__Subtitle {
+    margin-bottom: 20px ;
+}
+
+.quill__Container{
+    max-width: 100%;
+}
+.quill__Container .ql-editor{
+    height: 300px;
+    max-width: 100%;
+    word-wrap: break-word;
+}
+
+.inputtitle {
+    font-size: 40px;
+    border: none; 
+    padding : 10px;
+    outline: none;
+    transform: border-bottom 0.3s ease-in-out;
+}
+
+.inputtitle:hover, .inputtitle:focus{
+    border-bottom: 3px solid black;
+    font-weight: bold;
+    
+}
+
+.inputtag{
+    font-size: 15px;
+    border: none;
+    padding : 10px;
+    color: rgb(117, 195, 0);
+}
+
+.inputtag:focus{
+    color: rgb(117, 195, 0);
+}
+
+.nut {
+    padding: 20px 20px;
+    margin-left: 950px;
+    margin-bottom: 40px;
+}
+
+.nut button {
+    margin-right: 20px;
+    border: 2px solid black;
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    transform: background-color 1s ease-in-out;
+}
+
+.preview  {
+    font-weight: bold;
+    color: grey;
+}
+
+.post {
+    font-weight: bold;
+    color: grey;
+}
+
+.save  {
+    font-weight: bold;
+    color: grey;
+}
+.nut button:hover {
+    background-color: black;
+    opacity: 0.6;
+}
+
+
