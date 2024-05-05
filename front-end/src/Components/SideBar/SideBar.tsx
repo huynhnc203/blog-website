@@ -28,7 +28,7 @@ const LinkItems: Array<LinkItemProps> = [
   { name: 'Home', icon: FiHome, path: '/'},
   { name: 'Trending', icon: FiTrendingUp, path: '/Trending'},
   { name: 'Explore', icon: FiCompass, path: '/AboutUs' },
-  { name: 'Write', icon: FiEdit3, path: '/write' },
+  { name: 'Write', icon: FiEdit3, path: '/Write' },
   { name: 'Notification', icon: FiBell, path: '/Notification' },
 ];
 
