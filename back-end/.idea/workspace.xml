@@ -5,17 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="55ec6fd2-9a80-44ee-b2ef-a08e86229c5a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/blog_api/posts/comment_management/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/posts/tag_management/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/users/follow_management/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/users/follow_management/follow_apis.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog_api/posts/comment_management/comments_view.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog_api/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog_api/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog_api/models/tags_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog_api/models/tags_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog_api/models/user_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog_api/models/user_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog_api/posts/posts_management/posts_mamagement.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog_api/posts/posts_management/posts_mamagement.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog_api/posts/posts_management/tags_management.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog_api/posts/tag_management/tags_management.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog_api/utils/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog_api/utils/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog_api/posts/like_posts/like_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog_api/posts/like_posts/like_views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
