@@ -1,0 +1,68 @@
+.right{
+    width: 26%;
+    height: 100%;
+    padding-top: 25px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 50px; 
+    margin-top: 40px;
+    border-left: 1px solid #e6e6e6;;
+}
+.right>div>button{
+    background-color: black;
+    color: white;
+    margin: auto;
+    width: 300px;
+    height: 40px;
+    border-radius: 20px;
+    margin: auto;
+    margin-top: 40px;
+    margin-left: 40px;
+}
+#search{
+    margin: auto;
+    width: 300px;
+    height: 40px;
+    border-radius: 20px;
+    border: 0.5px solid #e6e6e6;
+    outline: none;
+    padding-left: 30px;
+    margin: auto;
+    margin-top: 40px;
+    margin-left: 40px;
+}
+
+/* li{
+    margin-left: 40px;
+    margin-top: 0px;
+    list-style: none;
+    font-size: larger;
+    
+}
+li::before{
+    content: "\2022";
+    color: green;
+    font-weight: bold;
+    font-size: xx-large;
+    display: inline-block; 
+    width: 1em;
+} */
+
+.topic{
+    /* margin-top: 15px; */
+    margin-left: 40px;
+    margin-bottom: 20px;
+}
+
+.li-tag{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  font-size: 16px;
+  font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  margin-left: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

@@ -3,10 +3,10 @@ import ProfileCard from "./ProfileCard";
 import { Container, Col, Row } from "react-bootstrap";
 
 const DevelopmentTeam = () => {
-    let phuctitle = "Đẳng cấp số 1 VN , chơi liên quân số 2 không ai số 1 , gánh Thái, Vanh lên thách đấu"
-    let huynhtitle = "Lập trình viên số 1 về HTMLOL, sinh viên của trường đại học số 1 VN UET-VNU"
-    let hungtitle = "Aesthetic guy, tay to nắm chắc về cả kỹ năng lập trình và bắn súng Valorant. #dangcapvjppro"
-    let truongtitle = "Đang làm việc tại tập đoàn số 1 việt nam - Vingroup . Công việc hót rác "
+    let phuctitle = "Support Front-end programming, building software-supported AI systems"
+    let huynhtitle = "Number 1 Back-end programmer in the team, mastery of building a system"
+    let hungtitle = "Front-end programmer, proplayer Vanlorant, support the team in all aspects"
+    let truongtitle = "Solid back-end platform, always completing assigned tasks, and supporting the team in all aspects"
 
 
 
@@ -20,7 +20,6 @@ const DevelopmentTeam = () => {
         <>
             <Container>
                 <div className="word">
-                    <h1>Development Team</h1>
                     <h1 style={{ color: "black" }}>Development Team</h1>
                 </div>
                 <div>
