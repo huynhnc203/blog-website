@@ -10,6 +10,7 @@ import Sidebar from "./Components/SideBar/SideBar.tsx";
 import ProfilePage from "./Components/ProfilePage/ProfilePage";
 import ProfilePageEdit from "./Components/ProfilePage/ProfilePageEdit";
 import Write from "./Components/Page/Write/Write.jsx";
+import Notification from "./Components/Page/NotificationPage/Notification.jsx";
 
 //import cang trang moi vao day
 import AboutUs from './Components/Page/Aboutus';
@@ -56,6 +57,7 @@ function AppContent() {
         <Route path="/ProfilePage" element={<ProfilePage />} />
         <Route path="/ProfilePageEdit" element={<ProfilePageEdit />} />
         <Route path="/Write" element={<Write />} />
+        <Route path="/Notification" element={<Notification />} />
       </Routes>
     </div>
   );
