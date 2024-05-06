@@ -78,10 +78,18 @@ jwt = JWTManager(app)
 from blog_api.users.management.user_management import UserManagement
 from blog_api.posts.posts_management.posts_mamagement import PostManagement
 from blog_api.users.authenticate.authenticate import auth_blueprint
+from blog_api.users.follow_management.follow_apis import follow_blueprint
+from blog_api.posts.tag_management.tags_management import TagManagement
+from blog_api.posts.like_posts.like_views import like_blueprint
+from blog_api.posts.comment_management.comments_view import comment_blueprint
 
 api.add_resource(UserManagement, "/api/users", "/api/users/<int:id>")
 api.add_resource(PostManagement, "/api/posts", "/api/posts/<int:id>", "/api/posts/paginate/<int:page>")
+api.add_resource(TagManagement, "/api/tags", "/api/tags/<int:id>", "/api/tags/add_tags/<int:blog_id>")
 app.register_blueprint(auth_blueprint, url_prefix="/api/authenticate")
+app.register_blueprint(follow_blueprint, url_prefix="/api")
+app.register_blueprint(like_blueprint, url_prefix="/api")
+app.register_blueprint(comment_blueprint, url_prefix="/api")
 
 db.init_app(app)
 with app.app_context():
