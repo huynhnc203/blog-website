@@ -5,9 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="55ec6fd2-9a80-44ee-b2ef-a08e86229c5a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/blog_api/posts/comment_management/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog_api/posts/tag_management/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog_api/users/follow_management/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog_api/users/follow_management/follow_apis.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog_api/users/authenticate/authenticate.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog_api/users/authenticate/authenticate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog_api/users/management/user_management.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog_api/users/management/user_management.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog_api/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog_api/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog_api/models/tags_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog_api/models/tags_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog_api/models/user_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog_api/models/user_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog_api/posts/posts_management/posts_mamagement.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog_api/posts/posts_management/posts_mamagement.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog_api/posts/posts_management/tags_management.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog_api/posts/tag_management/tags_management.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog_api/utils/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog_api/utils/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,11 +59,11 @@
       <recent name="$PROJECT_DIR$/test" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/blog_api/posts/tag_management" />
       <recent name="$PROJECT_DIR$/blog_server/services/posts/tags" />
       <recent name="$PROJECT_DIR$/blog_server/services/posts/comments" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/blog_server/services/posts" />
-      <recent name="$PROJECT_DIR$/blog_api/services/tags" />
     </key>
   </component>
   <component name="RunManager" selected="Python.server">
@@ -129,7 +137,7 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests in test_tag_resource.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests in /Users/nguyenhuynh/Documents/ML/blog-website/back-end/test/test_tag_resource.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="back-end" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -145,16 +153,16 @@
     </configuration>
     <list>
       <item itemvalue="Python.server" />
+      <item itemvalue="Python tests.Python tests in /Users/nguyenhuynh/Documents/ML/blog-website/back-end/test/test_tag_resource.py" />
       <item itemvalue="Python tests.Python tests for test_tag_resource.TestTagResource.test_create_tag" />
       <item itemvalue="Python tests.Python tests for test.test_tag_resource.TestTagResource" />
       <item itemvalue="Python tests.Python tests for test_tag_resource.TestTagResource" />
-      <item itemvalue="Python tests.Python tests in test_tag_resource.py" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.server" />
         <item itemvalue="Python tests.Python tests for test_tag_resource.TestTagResource" />
-        <item itemvalue="Python tests.Python tests in test_tag_resource.py" />
+        <item itemvalue="Python tests.Python tests in /Users/nguyenhuynh/Documents/ML/blog-website/back-end/test/test_tag_resource.py" />
         <item itemvalue="Python tests.Python tests for test.test_tag_resource.TestTagResource" />
         <item itemvalue="Python tests.Python tests for test_tag_resource.TestTagResource.test_create_tag" />
       </list>

@@ -9,5 +9,5 @@ def handle_exceptions(func):
             return func(*args, **kwargs)
         except Exception as e:
             logging.error(e)
-            return response_with(resp.SERVER_ERROR_500)
+            return response_with(resp.SERVER_ERROR_500, value={"error": str(e)})
     return wrapper

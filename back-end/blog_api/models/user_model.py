@@ -82,34 +82,6 @@ class User(db.Model):
             "linkedin": self.linkedin,
             "twitter": self.twitter,
             "posts": len(self.posts),
+            "followers": self.followers.count(),
+            "followings": self.followings.count(),
         }
-    
-    def has_liked(self, post):
-        return post in self.liked_posts and self in post.liked_users
-    
-    def like_post(self, post):
-        if not self.has_liked(post):
-            self.liked_posts.append(post)
-            post.liked_users.append(self)
-        else:
-            self.unlike_post(post)
-    
-    def unlike_post(self, post):
-        if self.has_liked(post):
-            self.liked_posts.remove(post)
-            post.liked_users.remove(self)
-    
-    def is_following(self, user):
-        return user in self.followings and self in user.followers
-
-    def follow(self, user):
-        if not self.is_following(user):
-            self.followings.append(user)
-            user.followers.append(self)
-        else:
-            self.unfollow(user)
-
-    def unfollow(self, user):
-        if self.is_following(user):
-            self.followings.remove(user)
-            user.followers.remove(self)
