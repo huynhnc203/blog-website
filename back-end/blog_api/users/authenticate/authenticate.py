@@ -22,10 +22,7 @@ def user_lookup_callback(_jwt_header, jwt_data):
 def login():
     try:
         data = request.get_json()
-        if 'name' in data.keys():
-            user = User.query.filter_by(name=data['name']).first()
-        elif 'email' in data.keys():
-            user = User.query.filter_by(email=data['email']).first()
+        user = User.find_by_email(data['email'])
         if not user or not user.isVerified:
             return response_with(resp.BAD_REQUEST_400, value={"error": "User not found or not verified"})
         if not user.check_password(data['password']):
