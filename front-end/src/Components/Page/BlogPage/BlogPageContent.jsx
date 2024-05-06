@@ -20,7 +20,7 @@ const Header = () =>{
                 <div className="thumbnail">
                     <img className="left" src="anhvovan.jpg" />
                 </div>
-                <div className="right">
+                <div className="rightcontent">
                     <h1>Why you Need More Magnesium in Your Daily Diet</h1>
                     <div className="author">
                         <img src="phuc.jpg" />
@@ -90,9 +90,9 @@ const Content = () => {
                     <CardPostBox
                     key = {index}
                     isLoaded = {isLoaded}
-                    name = "chua co"
-                    title = "chua co"
-                    subtitle = "chua co"
+                    name = "underfiled"
+                    title = "underfiled"
+                    subtitle = "underfiled"
                     />
                 </Col>
             ))
