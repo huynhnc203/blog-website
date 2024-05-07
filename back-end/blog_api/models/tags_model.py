@@ -12,7 +12,10 @@ class Tag(db.Model):
     def serialize(self):
         return {
             "id": self.id,
-            "name": self.name
+            "name": self.name,
+            "posts" : [
+                post.serialize() for post in self.posts
+            ]
         }
 
     def create(self):

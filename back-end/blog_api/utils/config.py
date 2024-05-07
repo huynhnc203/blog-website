@@ -11,6 +11,8 @@ class BaseConfig(object):
     """Base configuration."""
     SECRET_KEY = get_random_string()
     SECURITY_PASSWORD_SALT = get_random_string()
+    JWT_SECRET_KEY = get_random_string()
+    JWT_LOCATION = ['headers', 'cookies']
     DEBUG = True
     TESTING = False
     SQLALCHEMY_TRACK_MODIFICATIONS = False
