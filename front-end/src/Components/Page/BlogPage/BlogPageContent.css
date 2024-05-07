@@ -110,3 +110,18 @@ p {
 }
 
 
+.newfeedtitle:hover {
+    color: #0000;
+    background: 
+      linear-gradient(90deg, #65aef3 50%, #000 0) calc(100% - 0%)/200% 100%;
+    background-clip: text,padding-box;
+    transition: 1s;
+  }
+    
+  .newfeedtitle {
+    font-family: system-ui, sans-serif;
+    font-size: 3rem;
+    border-bottom: 2px solid #000;
+    transform: background-color 1s ease-in-out;
+  }
+  

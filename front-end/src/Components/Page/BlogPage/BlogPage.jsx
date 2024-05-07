@@ -2,6 +2,7 @@ import React from "react";
 import { Grid, Box } from "@chakra-ui/react";
 import Sidebar from "../../SideBar/SideBar.tsx"
 import BlogPageContent from "./BlogPageContent.jsx";
+import BlogPageRight from "./BlogPageRight.jsx";
 
 const BlogPage = () => {
     return (
@@ -14,7 +15,7 @@ const BlogPage = () => {
                 <BlogPageContent/>
             </Box>
             <Box w="100%" h="10">
-                <h3>vip nhat he mat trời</h3>
+                <BlogPageRight/>
             </Box>
         </Grid>
         </div>

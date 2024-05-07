@@ -14,7 +14,7 @@ import { FiChevronRight } from "react-icons/fi";
 const Header = () =>{
     return (
         <>
-        <h1>News Feed</h1>
+        <h1 class = "newfeedtitle"> News Feed</h1>
         <div className="fond">
             <div className="card">
                 <div className="thumbnail">
@@ -53,7 +53,6 @@ const Content = () => {
             setIsLoaded(true); 
         }, 1000);
     }
-    console.log(count)
     
     const getAllPosts = async () => {
     let res = await fetch('http://localhost:8000/api/posts')
@@ -70,7 +69,6 @@ const Content = () => {
     return (
         <Container>
           <h1>Content</h1>
-          <p>This is the content of the page.</p>
           <div>
           <Row>
           {isLoaded ? allPosts.slice(count, countnext).map((post, index) => (

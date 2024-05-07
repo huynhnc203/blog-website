@@ -1,4 +1,5 @@
-import { Stack, HStack, Link, Divider, Image, IconButton, LinkProps } from '@chakra-ui/react';
+import { Stack, HStack, Divider, Image, IconButton} from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 // Here we have used react-icons package for the icons
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
@@ -49,9 +50,9 @@ const Footer = () => {
       {/* Mobile and Tablet Screens */}
       <Stack d={{ base: 'flex', md: 'none' }} alignItems="center">
         <HStack alignItems="center">
-          <CustomLink>Sign up</CustomLink>
+          <Link to = "/SignUp">Sign up</Link>
           <Divider h="1rem" orientation="vertical" />
-          <CustomLink>Blog</CustomLink>
+          <Link>Blog</Link>
           <Divider h="1rem" orientation="vertical" />
         </HStack>
       </Stack>
