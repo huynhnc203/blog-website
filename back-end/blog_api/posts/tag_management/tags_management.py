@@ -62,3 +62,16 @@ class TagManagement(Resource):
             return response_with(resp.SUCCESS_201, value = tag.serialize())
 
         return response_with(resp.SERVER_ERROR_404, value="Tag not found")
+    
+    @handle_exceptions
+    def get_all_posts_by_tag(self, id)
+        tag = Tag.find_by_tag(id)
+        if not tag:
+            return response_with(resp.SERVER_ERROR_404, value="Tag not found")
+        
+        posts = tag.posts.all()
+        if not posts:
+            return response_with(resp.SERVER_ERROR_404, value="No post found for this tag")
+        serialized_posts = [post.serialize() for post in posts]
+        return response_with(resp.SUCCESS_200, value=serialized_posts)
+        
