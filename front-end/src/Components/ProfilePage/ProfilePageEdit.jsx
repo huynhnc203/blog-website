@@ -12,7 +12,7 @@ const ProfilePage = () => {
                         <div className="card-header">Profile Picture</div>
                         <div className="card-body d-flex flex-column algin-items-ceter justify-content-center text-center ">
                             {/* Profile picture image */}
-                            <img className="img-account-profile rounded-circle mb-2" src="avt.jpg" alt="" />
+                            <img className="img-account-profile rounded-circle mb-2" src="default.jpg" alt="" />
                             {/* Profile picture help block */}
                             <div className="small font-italic text-muted mb-4">Giới hạn về dung lượng file</div>
                             {/* Profile picture upload button */}
