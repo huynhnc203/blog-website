@@ -5,9 +5,9 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import { BiLike, BiChat, BiShare } from "react-icons/bi";
 import { Image } from "@chakra-ui/react";
 
-const CardBlog = () => {
+const CardBlog = ({key, load, name , date , title, subtitle , like}) => {
     const [isUserHover, setIsUserHover] = useState(false);
-    const [likeCount, setLikeCount] = useState(0);
+    const [likeCount, setLikeCount] = useState(like);
     const [liked, setLiked] = useState(false);
 
     const handleUserHover = () => {
@@ -37,8 +37,8 @@ const CardBlog = () => {
                                 onMouseEnter={handleUserHover}
                                 onMouseLeave={handleUserHover}
                                 cursor={"pointer"}
-                                color={isUserHover ? "blue.500" : "black"}>Hung Depzai</Heading>
-                            <Text style={{ marginBottom: '20px' }}>Viết báo dạo</Text>
+                                color={isUserHover ? "blue.500" : "black"}>{name}</Heading>
+                            <Text style={{ marginBottom: '20px' }}>{date}</Text>
                         </Box>
                     </Flex>
                     <IconButton
@@ -55,7 +55,7 @@ const CardBlog = () => {
                     className="bold-text"
                     color='Black'
                     fontSize='20px'>
-                    Lời giới thiệu
+                    {title}
                 </Text>
                 <Text style={{ marginTop: '-40px', marginBottom: '0px' }}>
                     Tôi là một developer chuyên nghiệp, tiếng anh thành thạo hi, hello, sở thích nghe nhạc vàng và ngồi hát.
@@ -79,17 +79,14 @@ const CardBlog = () => {
                 }}
             >
                 <Button
-                    className={`like-button ${liked ? "liked" : ""}`}
+                    className={`like-button`}
                     style={{ color: liked ? 'blue' : 'black' }}
                     variant='ghost'
                     leftIcon={<BiLike />}
                     onClick={handleLikeClick}
                     size="md"
                 >
-                    {liked ? "Unlike" : "Like"} ({likeCount})
-                </Button>
-                <Button flex='1' variant='ghost' leftIcon={<BiChat />}>
-                    Comment
+                    Like ({likeCount})
                 </Button>
                 <Button flex='1' variant='ghost' leftIcon={<BiShare />}>
                     Share

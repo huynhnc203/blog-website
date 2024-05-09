@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route , Routes, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Route , Routes, useLocation, useNavigate } from "react-router-dom";
 import { useEffect , useState} from 'react';
 import Homepage from "./Components/Homepage/Homepage";
 import LoginForm from "./Components/LoginForm/LoginForm";
@@ -18,29 +18,22 @@ import Contact from './Components/Page/Contact';
 import Trending from './Components/Page/Trending';
 
 
-
-
 function AppContent() {
   const location = useLocation();
   const [hideNavbar, setHideNavbar] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const hiddenRoutes = ["/BlogPage", "/AnotherHiddenPage"];
-    
     // Kiểm tra xem đường dẫn hiện tại có trong danh sách các đường dẫn ẩn Navbar hay không
     const shouldHideNavbar = hiddenRoutes.includes(location.pathname);
-  
     // Chỉ cập nhật state nếu trạng thái mới thay đổi so với trạng thái hiện tại
     if (shouldHideNavbar !== hideNavbar) {
       setHideNavbar(shouldHideNavbar);
-    }
-    
+    }  
+  }, [location.pathname, hideNavbar, navigate]);
 
-
-  }, [location.pathname, hideNavbar]);
-
-  
-
+ 
   return (
     <div className="App">
       <div>
@@ -56,7 +49,7 @@ function AppContent() {
         <Route path="/BlogPage" element={<BlogPage />} />
         <Route path="/ProfilePage" element={<ProfilePage />} />
         <Route path="/ProfilePageEdit" element={<ProfilePageEdit />} />
-        <Route path="/Write" element={<Write />} />
+        <Route path="/Write" element = {<Write/>} />
         <Route path="/Notification" element={<Notification />} />
       </Routes>
     </div>

@@ -1,9 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom';
 import './ProfilePage.css';
 import { BsPlusCircleDotted } from "react-icons/bs";
+import { useAuth } from '../LoginForm/CheckLogin';
+
+
+
 
 const ProfilePage = () => {
+    const {isLoggedIn, setIsLoggedIn} = useAuth();
+    const [userData , setUserData] = useState([]);
+
+
+    async function makeRequestWithJWT() {
+        const options = {
+          method: 'POST',
+          headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+          }
+        };
+        const response = await fetch('http://localhost:8000/api/authenticate/current_user', options);
+        const result = await response.json();
+        setUserData(result['data']);
+      }
+      
+      useEffect(() => {
+        makeRequestWithJWT();
+      }, []);
+
+      console.log(userData)
+     
     return (
         <div className="profilepage-body">
         <div className="container emp-profile">
@@ -11,18 +37,18 @@ const ProfilePage = () => {
                 <div className="row">
                     <div className="col-md-4">
                         <div className="profile-img">
-                            <img src="phuc.jpg" alt=""/>
+                            <img src= "default.jpg"  alt=""/>
                         </div>
                     </div>
                     <div className="col-md-6">
                         <div className="profile-head">
                             <h5>
-                                LEO PHUC
+                                {isLoggedIn? userData.name : "User Name"}
                             </h5>
                             <h6>
-                                AI Enginear
+                                {isLoggedIn? userData.description: "Description"}
                             </h6>
-                            <p className="proile-rating">RATTING : <span>10/10</span></p>
+                            <p className="proile-rating">ID : <span>{isLoggedIn? userData.id: "ID"}</span></p>
                             <ul className="nav nav-tabs" id="myTab" role="tablist">
                                 <li className="nav-item">
                                     <a className="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
@@ -57,7 +83,7 @@ const ProfilePage = () => {
                                         <label>User Id </label>
                                     </div>
                                     <div className="col-md-6">
-                                        <p>PhucLeoMec</p>
+                                        <p>{isLoggedIn? userData.id : "id"}</p>
                                     </div>
                                 </div>
                                 <div className="row">
@@ -65,7 +91,7 @@ const ProfilePage = () => {
                                         <label>Name</label>
                                     </div>
                                     <div className="col-md-6">
-                                        <p>Huu Phuc</p>
+                                        <p>{isLoggedIn? userData.name : "name"}</p>
                                     </div>
                                 </div>
                                 <div className="row">
@@ -73,7 +99,7 @@ const ProfilePage = () => {
                                         <label>Email</label>
                                     </div>
                                     <div className="col-md-6">
-                                        <p>Phucdeptrai@gmail.com</p>
+                                        <p>{isLoggedIn? userData.email: "email@gmail.com"}</p>
                                     </div>
                                 </div>
                                 <div className="row">

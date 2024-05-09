@@ -1,0 +1,27 @@
+.blogpageright{
+    width: 20%;
+    height: 100%;;
+    display: flex;
+    flex-direction: column;
+    position: absolute; 
+    margin-top: 80px;
+    border-left: 1px solid #e6e6e6;;
+}
+
+#search{
+    margin: auto;
+    width: 200px;
+    height: 40px;
+    border-radius: 20px;
+    border: 0.5px solid #e6e6e6;
+    outline: none;
+    padding-left: 30px;
+    margin: auto;
+    margin-top: 40px;
+    margin-left: 40px;
+}
+
+.topic{
+    margin-bottom: 20px;
+}
+

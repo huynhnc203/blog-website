@@ -14,33 +14,49 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+import { createContext , useContext } from 'react';
+import { useAuth } from './CheckLogin';
+
 
 const LoginForm = () => {
+  const { setIsLoggedIn } = useAuth();
   const [email , setEmail] = useState('');
   const [password , setPassword] = useState('');
-  
+  const [datalogin , setDataLogin] = useState([]);
+  const navigate = useNavigate();
+
   //hàm xử lý ở đây nhé Huynh
   const handlSignIn = () => {
     console.log(`test email : ${email}`)
     console.log(`test password : ${password}`)
-    const body = {
-      email: email,
-      password: password
-    }
-    fetch("http://localhost:8000/authenticate", {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Type-Post': 'Login'
-      },
-      body: JSON.stringify(body)
-    })
-    .then(response => {
-      console.log(response.json())
-    })
-    .catch(error => {
-      console.log(error)
-    });
+    const fetchData = async () => {
+      const body = {
+        email: email,
+        password: password
+      }
+
+      let resjson = await fetch('http://localhost:8000/api/authenticate/login',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(body)
+        }
+      )
+      let login = await resjson.json()
+      setDataLogin(login['data'])
+      console.log(datalogin)
+      localStorage.setItem('token', datalogin.access_token)
+      console.log(`token : ${datalogin.access_token}`)
+
+      if (localStorage.getItem('token') !== "undefined") {
+          navigate('/');
+          setIsLoggedIn(true);
+      }
+  }
+  fetchData();
   }
 
   return (
