@@ -1,6 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import './Homepage.css'
-import { Button } from "react-bootstrap";
 import FeaturePost from "./HomepageTwo/FeaturePost";
 import Learmore from "./HomepageThree/Learnmore";
 import DevelopmentTeam from "./HomepageFour/DevelopmentTeam";
@@ -16,7 +16,9 @@ const Homepage = () => {
                     <div style={{ paddingLeft: '120px' }}>
                         <h1>World of Technology</h1>
                         <p style={{ lineHeight: '1em' }}>Discover stories, thinking, and expertise from writers on any topic.</p>
+                        <Link to = "/LoginForm" className="nav-link">
                         <button type="button" class="btn btn-lg rounded-5 custom-button">Get started</button>
+                        </Link>
                     </div>
                 </div>
             </div>

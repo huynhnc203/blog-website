@@ -19,6 +19,8 @@ import { IconType } from 'react-icons';
 import { ReactText } from 'react';
 import {Link} from 'react-router-dom'
 
+
+
 interface LinkItemProps {
   name: string;
   icon: IconType;
@@ -33,6 +35,8 @@ const LinkItems: Array<LinkItemProps> = [
 ];
 
 export default function Sidebar() {
+  
+
   return (
     <Box minH="100vh" w = "240px" bg={useColorModeValue('gray.100', 'gray.900')}>
       <SidebarContent/>

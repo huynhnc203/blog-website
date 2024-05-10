@@ -19,6 +19,7 @@ import Trending from './Components/Page/Trending';
 
 
 function AppContent() {
+  
   const location = useLocation();
   const [hideNavbar, setHideNavbar] = useState(false);
   const navigate = useNavigate();
@@ -32,7 +33,6 @@ function AppContent() {
       setHideNavbar(shouldHideNavbar);
     }  
   }, [location.pathname, hideNavbar, navigate]);
-
  
   return (
     <div className="App">

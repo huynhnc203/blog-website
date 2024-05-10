@@ -28,7 +28,7 @@ const CardBlog = ({key, load, name , date , title, subtitle , like}) => {
             <CardHeader>
                 <Flex spacing='4'>
                     <Flex flex='1' gap='4' alignItems='center' flexWrap='wrap'>
-                        <Avatar name='Hung' src='hung.jpg' style={{ marginTop: '-20px' }} />
+                        <Avatar name='Hung' src='default.jpg' style={{ marginTop: '-20px' }} />
 
                         <Box>
                             <Heading
