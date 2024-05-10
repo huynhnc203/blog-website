@@ -18,6 +18,17 @@ class TagManagement(Resource):
             if tag:
                 return response_with(resp.SUCCESS_200, value=tag.serialize())
             return response_with(resp.SERVER_ERROR_404, value="Tag not found")
+        args = parser.parse_args()
+        tag_name = args.get('tag_name')
+        if tag_name:
+            tag = Tag.find_by_tag(tag_name)
+            if not tag:
+                return response_with(resp.SERVER_ERROR_404, value="Tag not found")
+            posts = tag.posts.all()
+            if not posts:
+                return response_with(resp.SERVER_ERROR_404, value="No post found")
+            serialized_posts = [post.serialize() for post in posts]
+        
         return response_with(resp.SUCCESS_200, value=[tag.serialize() for tag in Tag.query.all()])
 
     @handle_exceptions
@@ -62,3 +73,5 @@ class TagManagement(Resource):
             return response_with(resp.SUCCESS_201, value = tag.serialize())
 
         return response_with(resp.SERVER_ERROR_404, value="Tag not found")
+    
+        
