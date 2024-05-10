@@ -1,17 +1,20 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Write.css"; 
+import {useAuth} from "../../LoginForm/CheckLogin";
 import WriteContent from "./WriteContent";
 
+
+
 const Write = () => {
+    const {isLoggedIn, setIsLoggedIn} = useAuth();
     const navigate = useNavigate();
 
     useEffect(() => {
-        const token = localStorage.getItem('token');
-        if (!token && token === "undefined") {
+        if(isLoggedIn === false){
             navigate('/LoginForm');
         }
-    }, [navigate]);
+    }, [navigate, isLoggedIn]);
 
     return (
         <WriteContent/>

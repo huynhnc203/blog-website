@@ -22,6 +22,35 @@ import { Link as RouterLink } from 'react-router-dom';
 
 const SignupCard = () => {
   const [showPassword, setShowPassword] = useState(false)
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  async function makeRequestForSignIn() {
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            "name": firstName + lastName,
+            "password": password,
+            "email": email,
+        })
+    };
+    try {
+        const response = await fetch('http://localhost:8000/api/users', options);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const result = await response.json();
+        console.log(result);
+    } catch (error) {
+        console.error('There was a problem with the fetch operation:', error);
+    }
+}
+
 
   return (
     <Flex
@@ -45,24 +74,24 @@ const SignupCard = () => {
               <Box>
                 <FormControl id="firstName" isRequired>
                   <FormLabel>First Name</FormLabel>
-                  <Input type="text" />
+                  <Input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)}/>
                 </FormControl>
               </Box>
               <Box>
                 <FormControl id="lastName">
                   <FormLabel>Last Name</FormLabel>
-                  <Input type="text" />
+                  <Input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)}/>
                 </FormControl>
               </Box>
             </HStack>
             <FormControl id="email" isRequired>
               <FormLabel>Email address</FormLabel>
-              <Input type="email" />
+              <Input type="email" value={email} onChange={(e)=> setEmail(e.target.value)} />
             </FormControl>
             <FormControl id="password" isRequired>
               <FormLabel>Password</FormLabel>
               <InputGroup>
-                <Input type={showPassword ? 'text' : 'password'} />
+                <Input type={showPassword ? 'text' : 'password'} value={password} onChange={(e) => setPassword(e.target.value)} />
                 <InputRightElement h={'full'}>
                   <Button
                     variant={'ghost'}
@@ -79,8 +108,9 @@ const SignupCard = () => {
                 bg={'blue.400'}
                 color={'white'}
                 _hover={{
-                  bg: 'blue.500',
-                }}>
+                  bg: 'blue.500',  
+                }}
+                onClick={makeRequestForSignIn}>
                 Sign up
               </Button>
             </Stack>
