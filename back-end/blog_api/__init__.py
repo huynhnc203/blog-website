@@ -25,7 +25,7 @@ url_obj = URL.create(
     "postgresql",
     username=os.getenv("username"),
     password=os.getenv("password"),
-    host="localhost",
+    host="back-end-postgres-1",
     port=5432,
     database="Blog_Website",
 ) 
@@ -66,9 +66,15 @@ def create_app(cfg=app_config.Development, alt_config=None):
 
     return application
 
-app = create_app(alt_config={
-    "SQLALCHEMY_DATABASE_URI": url_obj, 
-    "LOG_FILE": "application.log"})
+if os.environ["STAGE"] == "DEPLOYING":
+    app = create_app(cfg=app_config.ProductionConfig, alt_config={
+        "SQLALCHEMY_DATABASE_URI" : url_obj,
+        "LOG_FILE" : "apllication.log"
+    })
+else:
+    app = create_app(alt_config={
+        "SQLALCHEMY_DATABASE_URI": url_obj,
+        "LOG_FILE": "application.log"})
 
 mail.init_app(app)
 migrate = Migrate(app, db)
@@ -85,7 +91,7 @@ from blog_api.posts.comment_management.comments_view import comment_blueprint
 
 api.add_resource(UserManagement, "/api/users", "/api/users/<int:id>")
 api.add_resource(PostManagement, "/api/posts", "/api/posts/<int:id>", "/api/posts/paginate/<int:page>")
-api.add_resource(TagManagement, "/api/tags", "/api/tags/<int:id>", "/api/tags/add_tags/<int:blog_id>")
+api.add_resource(TagManagement, "/api/tags", "/api/tags/<int:id>", "/api/tags/add_tags/<int:blog_id>", "/api/tags/<name>")
 app.register_blueprint(auth_blueprint, url_prefix="/api/authenticate")
 app.register_blueprint(follow_blueprint, url_prefix="/api")
 app.register_blueprint(like_blueprint, url_prefix="/api")

@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="55ec6fd2-9a80-44ee-b2ef-a08e86229c5a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/blog_api/posts/like_posts/like_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog_api/posts/like_posts/like_views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apache/flask-app.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compose.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tornado_server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog_api/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog_api/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog_api/posts/tag_management/tags_management.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog_api/posts/tag_management/tags_management.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,16 +63,17 @@
       <recent name="$PROJECT_DIR$/blog_server/services/posts" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.server">
+  <component name="RunManager" selected="Docker.compose.yaml.flask_app: Compose Deployment">
     <configuration name="server" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="back-end" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="FLASK_APP" value="blog_server" />
         <env name="password" value="2003NguyeN:" />
         <env name="username" value="postgres" />
-        <env name="FLASK_APP" value="blog_server" />
+        <env name="STAGE" value="DEV" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -79,6 +87,61 @@
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
       <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tornado_server" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="back-end" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="username" value="postgres" />
+        <env name="password" value="2003NguyeN:" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tornado_server.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="containerName" value="" />
+          <option name="sourceFilePath" value="Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
+      <deployment type="dockerfile">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="compose.yaml.flask_app: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="flask_app" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="compose.yaml" />
+        </settings>
+      </deployment>
       <method v="2" />
     </configuration>
     <configuration name="Python tests for test_tag_resource.TestTagResource" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
@@ -99,62 +162,20 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for test_tag_resource.TestTagResource.test_create_tag" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="back-end" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_tag_resource.TestTagResource.test_create_tag&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Python tests for test.test_tag_resource.TestTagResource" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="back-end" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test.test_tag_resource.TestTagResource&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Python tests in /Users/nguyenhuynh/Documents/ML/blog-website/back-end/test/test_tag_resource.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="back-end" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/test/test_tag_resource.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
     <list>
+      <item itemvalue="Docker.compose.yaml.flask_app: Compose Deployment" />
+      <item itemvalue="Docker.Dockerfile" />
+      <item itemvalue="Python.tornado_server" />
       <item itemvalue="Python.server" />
-      <item itemvalue="Python tests.Python tests in /Users/nguyenhuynh/Documents/ML/blog-website/back-end/test/test_tag_resource.py" />
-      <item itemvalue="Python tests.Python tests for test_tag_resource.TestTagResource.test_create_tag" />
-      <item itemvalue="Python tests.Python tests for test.test_tag_resource.TestTagResource" />
       <item itemvalue="Python tests.Python tests for test_tag_resource.TestTagResource" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.compose.yaml.flask_app: Compose Deployment" />
         <item itemvalue="Python.server" />
+        <item itemvalue="Docker.Dockerfile" />
+        <item itemvalue="Python.tornado_server" />
         <item itemvalue="Python tests.Python tests for test_tag_resource.TestTagResource" />
-        <item itemvalue="Python tests.Python tests in /Users/nguyenhuynh/Documents/ML/blog-website/back-end/test/test_tag_resource.py" />
-        <item itemvalue="Python tests.Python tests for test.test_tag_resource.TestTagResource" />
-        <item itemvalue="Python tests.Python tests for test_tag_resource.TestTagResource.test_create_tag" />
       </list>
     </recent_temporary>
   </component>
