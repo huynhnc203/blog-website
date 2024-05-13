@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="55ec6fd2-9a80-44ee-b2ef-a08e86229c5a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornado_server.py" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog_api/search_engine/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog_api/search_engine/search_engine.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +57,7 @@
       <recent name="$PROJECT_DIR$/blog_server/services/posts" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.compose.yaml.flask_app: Compose Deployment">
+  <component name="RunManager" selected="Python.server">
     <configuration name="server" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="back-end" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -167,8 +167,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Docker.compose.yaml.flask_app: Compose Deployment" />
         <item itemvalue="Python.server" />
+        <item itemvalue="Docker.compose.yaml.flask_app: Compose Deployment" />
         <item itemvalue="Docker.Dockerfile" />
         <item itemvalue="Python.tornado_server" />
         <item itemvalue="Python tests.Python tests for test_tag_resource.TestTagResource" />
