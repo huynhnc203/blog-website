@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: "2003NguyeN:"
+      POSTGRES_DB: Blog_Website
+    ports:
+      - "55002:5432"
+    networks:
+      - postgres
+
+  flask_app:
+    image: blog-website-backend
+    build:
+      context: .
+    command: python3 server.py
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+    networks:
+      - postgres
+
+networks:
+  postgres:
+    driver: bridge

@@ -12,12 +12,16 @@ parser.add_argument('tags', type=str, action="append")
 
 class TagManagement(Resource):
     @handle_exceptions
-    def get(self, id=None):
+    def get(self, id=None, name=None):
         if id:
             tag = Tag.query.get(id)
             if tag:
                 return response_with(resp.SUCCESS_200, value=tag.serialize())
             return response_with(resp.SERVER_ERROR_404, value="Tag not found")
+        if name:
+            tag = Tag.find_by_tag(name)
+            if tag:
+                return response_with(resp.SUCCESS_200, value=tag.serialize())
         return response_with(resp.SUCCESS_200, value=[tag.serialize() for tag in Tag.query.all()])
 
     @handle_exceptions
