@@ -32,15 +32,12 @@ class PostManagement(Resource):
             if post:
                 return response_with(resp.SUCCESS_200, value=post.serialize())
             return response_with(resp.SERVER_ERROR_404, value="Post not found")
-        post = BlogPost.query.get(id)
-        if post:
-            return post.serialize()
         if page:
             return response_with(
                 resp.SUCCESS_200, value=[post.serialize()
                                          for post in BlogPost.query.\
                                              paginate(page=page, per_page=5).items])
-        return response_with(resp.SUCCESS_200, value=[post.serialize() for post in BlogPost.query.all()])
+        return response_with(resp.SUCCESS_200, value=[post.serialize() for post in BlogPost.query.order_by(id, )])
 
     @jwt_required()
     @handle_exceptions
