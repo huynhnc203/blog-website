@@ -1,0 +1,43 @@
+.card-white .card-heading {
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #ddd;
+  }
+  
+  .card-white .card-footer {
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+  }
+  
+  .card-white .h5 {
+    font-size: 14px;
+    /* font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; */
+  }
+  
+  .card-white .time {
+    font-size: 12px;
+    /* font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; */
+  }
+  
+  .post .post-heading {
+    height: 70px;
+    padding: 20px 15px;
+  }
+
+  .post .post-heading .meta .title {
+    margin-bottom: 0;
+  }
+  
+  .post .post-heading .meta .title a {
+    color: black;
+  }
+  
+  .post .post-heading .meta .title a:hover {
+    color: #aaaaaa;
+  }
+  
+  .post .post-heading .meta .time {
+    margin-top: 8px;
+    color: #999;
+  }
+  

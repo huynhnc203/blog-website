@@ -14,9 +14,36 @@ const WriteContent = () => {
   const [subtitle, setSubtitle] = useState('');
   const [preview, setPreview] = useState(false);
 
+  const makeRequestForAddPost = async () => {
+    const options = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        body: JSON.stringify({
+            'title': title,
+            'subtitle': subtitle,
+            'body': value,
+            })
+      };
+      const response = await fetch('http://localhost:8000/api/posts', options);
+      const result = await response.json();
+    }
+
   const handlePreview = () =>{
     setPreview(true)
   }
+
+  const handdleSave =()=>{
+    const datapost = {
+        "title": title,
+        "subtitle": subtitle,
+        "body": value,
+    }
+    localStorage.setItem('data', JSON.stringify(datapost));
+  }
+
       
   const modules = {
     toolbar: [
@@ -61,8 +88,8 @@ const WriteContent = () => {
 
         <div className = "nut">
             <button className="preview" onClick={handlePreview}>Preview</button>
-            <button className = "post">Post</button>
-            <button className="save">Save</button>
+            <button className= "post" onClick={makeRequestForAddPost}>Post</button>
+            <button className="save" onClick={handdleSave} >Save</button>
         </div>
         </>
         )

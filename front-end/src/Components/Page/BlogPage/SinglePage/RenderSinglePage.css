@@ -1,0 +1,36 @@
+.renderpost {
+    display: flex;
+    padding: 0 0; 
+    height: 100vh;
+    margin: 0;
+}
+
+.box-1 {
+    width: 70%;
+    flex-grow: 1;
+    border-right: 1px solid #e0e0e0;
+}
+
+.box-1 h1 {
+    font-size: 40px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.box-1 h2 {
+    font-size: 15px;
+    text-align: right;
+}
+
+.box-1 p {
+    margin-top: 20px;
+    text-align: justify;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+.box-2 {
+    width: 30%;
+    flex-grow: 2;
+}
