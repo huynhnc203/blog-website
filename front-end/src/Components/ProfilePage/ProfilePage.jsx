@@ -27,9 +27,7 @@ const ProfilePage = () => {
       useEffect(() => {
         makeRequestWithJWT();
       }, []);
-
-      console.log(userData)
-     
+           
     return (
         <div className="profilepage-body">
         <div className="container emp-profile">

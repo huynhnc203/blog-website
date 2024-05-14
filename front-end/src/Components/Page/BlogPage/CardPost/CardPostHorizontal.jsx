@@ -1,10 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import './CardPostHorizontal.css';
 import { Skeleton} from '@chakra-ui/react'
 import { useState } from 'react';
 import { FaRegUserCircle } from "react-icons/fa";
+import { Link } from 'react-router-dom';
+import { Button } from '@chakra-ui/react';
+import IdContext from '../SinglePage/SinglePageContext';
 
-const CardPostHorizontal = ({key ,load , name , title , subtitle , description , date}) => {
+const CardPostHorizontal = ({key ,load , name , title , subtitle , description , date, idPost}) => {
+  const {id, setId} = useContext(IdContext);
   const [isLoaded, setIsLoaded] = useState(false);
   const setload= (load) =>{
     setIsLoaded(load)
@@ -13,6 +17,13 @@ const CardPostHorizontal = ({key ,load , name , title , subtitle , description ,
     setload(load)
   }, [load])
 
+  
+  // xet id vao local
+  const handleGetID =(idPost)=>{
+    setId(idPost)
+    localStorage.setItem('id', idPost)
+  };
+  
   return (
     <>
     <div className="blogpostcardhorizontal mt-5">
@@ -47,7 +58,7 @@ const CardPostHorizontal = ({key ,load , name , title , subtitle , description ,
                 <p class='des'>{description}</p>
               </Skeleton>
               <Skeleton isLoaded = {isLoaded}>
-              <a href="#" className="buttonreadmore"><i className="btn-icon fa fa-long-arrow-right"></i>READ MORE</a>
+              <Link to= "/SinglePage" className="nav-link"><Button colorScheme='blue' onClick={() => handleGetID(idPost)}>Read More</Button></Link>
               </Skeleton>
             </div>
             

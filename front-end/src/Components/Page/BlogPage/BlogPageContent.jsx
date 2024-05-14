@@ -67,6 +67,7 @@ const Content = () => {
   const maxLength = 200
 
     return (
+        // render card doc
         <Container>
           <h1>Content</h1>
           <div>
@@ -103,6 +104,8 @@ const Content = () => {
           </Row>
           
           </div>
+
+            {/* render card ngang */}
           <div>
           {isLoaded ? allPosts.slice(0, 6).map((post, index) => (
             <CardPostHorizontal 
@@ -113,6 +116,7 @@ const Content = () => {
             subtitle = {post.subtitle} 
             description = {post.body.length > maxLength ? post.body.substring(0, maxLength) + "..." : post.body}
             date = {post.date.substring(0, 10)}
+            idPost = {post.id}
              />
             )) : 
                 Array(6).fill().map((_, index) => (
@@ -122,6 +126,7 @@ const Content = () => {
                     name = "chua co"
                     title = "chua co"
                     subtitle = "chua co"
+                    idPost = "chua co"
                     />
                 
             ))

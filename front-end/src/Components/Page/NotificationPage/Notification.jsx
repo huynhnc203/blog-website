@@ -17,7 +17,9 @@ const Notification = () => {
     }, [navigate, isLoggedIn]);
     return(
         <>
+            <div>
             <Right/>
+            </div>
             <div className="notification-center">   
                 <NotificationCenter/>
             </div>
