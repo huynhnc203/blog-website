@@ -37,7 +37,7 @@ class PostManagement(Resource):
                 resp.SUCCESS_200, value=[post.serialize()
                                          for post in BlogPost.query.\
                                              paginate(page=page, per_page=5).items])
-        return response_with(resp.SUCCESS_200, value=[post.serialize() for post in BlogPost.query.order_by(id, )])
+        return response_with(resp.SUCCESS_200, value=[post.serialize() for post in BlogPost.query.order_by(BlogPost.date.desc()).all()])
 
     @jwt_required()
     @handle_exceptions

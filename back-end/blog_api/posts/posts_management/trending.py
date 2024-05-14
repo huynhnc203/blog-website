@@ -4,7 +4,7 @@ import blog_api.utils.responses as resp
 from blog_api.utils.utils import handle_exceptions
 from blog_api.models.posts_model import BlogPost
 
-post_trending_bp = Blueprint("trending", __name__)
+post_trending_bp = Blueprint("posts_trending", __name__)
 
 @post_trending_bp.route("/trending", methods=["GET"])
 @post_trending_bp.route("/trending/<int:page>", methods=["GET"])

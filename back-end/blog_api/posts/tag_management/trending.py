@@ -4,7 +4,7 @@ import blog_api.utils.responses as resp
 from blog_api.utils.utils import handle_exceptions
 from blog_api.models.tags_model import Tag
 
-tag_trending_bp = Blueprint("trending", __name__)
+tag_trending_bp = Blueprint("tags_trending", __name__)
 
 @tag_trending_bp.route("/trending", methods=["GET"])
 @tag_trending_bp.route("/trending/<int:page>", methods=["GET"])
