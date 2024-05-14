@@ -2,7 +2,8 @@ import React from "react";
 import {Image , Text} from '@chakra-ui/react'
 import './CardComment.css'
 
-const CardComment = () => {
+const CardComment = ({key , comments}) => {
+    console.log(comments)
     return (
         <div className="container p-3">
             <div className="row">
@@ -20,13 +21,13 @@ const CardComment = () => {
                             </div>
                             <div className="float-left meta">
                                 <div className="title h5">
-                                    <a href="#"><b>Ryan Haywood</b></a>
+                                    <a href="#"><b>{comments.author.name}</b></a>
                                 </div>
-                                <h6 className="text-muted time">1 minute ago</h6>
+                                <h6 className="text-muted time">{comments.create_at}</h6>
                             </div>
                         </div>
                         <div className="post-description"> 
-                            <p>Bootdey is a gallery of free snippets resources templates and utilities for bootstrap css hmtl js framework. Codes for developers and web designers</p>
+                            <p>{comments.body}</p>
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,52 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import {Image} from '@chakra-ui/react'
+import { useAuth } from '../../../../LoginForm/CheckLogin';
+import { useNavigate } from "react-router-dom";
 
-const FormCardComment = () => {
+const FormCardComment = ({id}) => {
+  const link = 'http://localhost:8000/api/comment/' + id
+  const [comments, setComments] = useState('')
+  const [userData, setUserData] = useState([])
+  const {isLoggedIn, setIsLoggedIn} = useAuth();
+
+  const navigate = useNavigate();
+
+
+  async function makeRequestWithJWT() {
+    if(isLoggedIn){
+      const options = {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+        }
+      };
+      const response = await fetch('http://localhost:8000/api/authenticate/current_user', options);
+      const result = await response.json();
+      setUserData(result['data']);
+      console.log(result['data']);
+      }
+  }
+  
+  const makeRequestAddComments = async (comments) => {
+    const options = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + localStorage.getItem('token'),
+        },
+        body: JSON.stringify({
+          'body': comments,
+          })
+      };
+      const response = await fetch(link, options);
+      setComments('')
+    }
+
+    useEffect(() => {
+       makeRequestWithJWT();
+    }, []);
+
+
   return (
     <div className="container p-3">
       <div className="row">
@@ -20,7 +65,7 @@ const FormCardComment = () => {
               <div className="float-left meta">
                 <div className="title h5">
                   <a href="#">
-                    <b>JohnDoe</b>
+                    <b>{isLoggedIn ? userData.name : "NONAME"}</b>
                   </a>
                 </div>
                 <h6 className="text-muted time">time</h6>
@@ -43,6 +88,8 @@ const FormCardComment = () => {
                     minLength={3}
                     maxLength={255}
                     required
+                    value={comments}
+                    onChange={(e) => setComments(e.target.value)}
                   ></textarea>
                 </div>
               </form>
@@ -51,7 +98,13 @@ const FormCardComment = () => {
               <button className="btn btn-link btn-sm me-2 text-decoration-none">
                 Cancel
               </button>
-              <button type="submit" className="btn btn-primary btn-sm">
+              <button type="submit" className="btn btn-primary btn-sm" onClick={() => {
+                if(isLoggedIn){
+                  makeRequestAddComments(comments);
+                }else {
+                  navigate('/LoginForm');
+                }
+                }}>
                 Submit
               </button>
             </footer>

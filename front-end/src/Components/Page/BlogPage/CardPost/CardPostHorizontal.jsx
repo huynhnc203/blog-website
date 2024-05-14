@@ -17,7 +17,12 @@ const CardPostHorizontal = ({key ,load , name , title , subtitle , description ,
     setload(load)
   }, [load])
 
-  const handleGetID =(idPost)=>{setId(idPost)};
+  
+  // xet id vao local
+  const handleGetID =(idPost)=>{
+    setId(idPost)
+    localStorage.setItem('id', idPost)
+  };
   
   return (
     <>
@@ -53,7 +58,7 @@ const CardPostHorizontal = ({key ,load , name , title , subtitle , description ,
                 <p class='des'>{description}</p>
               </Skeleton>
               <Skeleton isLoaded = {isLoaded}>
-              <Link to= "/SinglePage" className="nav-link"><Button colorScheme='blue' onClick={handleGetID(idPost)}>Read More</Button></Link>
+              <Link to= "/SinglePage" className="nav-link"><Button colorScheme='blue' onClick={() => handleGetID(idPost)}>Read More</Button></Link>
               </Skeleton>
             </div>
             
