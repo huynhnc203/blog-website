@@ -13,6 +13,7 @@ class BaseConfig(object):
     SECURITY_PASSWORD_SALT = get_random_string()
     JWT_SECRET_KEY = get_random_string()
     JWT_LOCATION = ['headers', 'cookies']
+    UPLOAD_FOLDER = os.path.realpath('.') + '/static/images'
     DEBUG = True
     TESTING = False
     SQLALCHEMY_TRACK_MODIFICATIONS = False
