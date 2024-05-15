@@ -10,5 +10,5 @@ post_trending_bp = Blueprint("posts_trending", __name__)
 @post_trending_bp.route("/trending/<int:page>", methods=["GET"])
 @handle_exceptions
 def get_trending_posts(page=1):
-    posts = BlogPost.query.order_by(BlogPost.likes.desc()).paginate(page, 5)
+    posts = BlogPost.query.order_by(BlogPost.liked_users.desc()).paginate(page, 5)
     return response_with(resp.SUCCESS_200, value={"posts": [post.serialize() for post in posts.items]})
