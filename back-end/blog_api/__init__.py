@@ -82,6 +82,7 @@ api = Api(app)
 jwt = JWTManager(app)
 
 from blog_api.users.management.user_management import UserManagement
+from blog_api.users.management.avatar_upload import avatar_upload_bp
 from blog_api.posts.posts_management.posts_mamagement import PostManagement
 from blog_api.posts.posts_management.trending import post_trending_bp
 from blog_api.users.authenticate.authenticate import auth_blueprint
@@ -101,6 +102,7 @@ app.register_blueprint(like_blueprint, url_prefix="/api")
 app.register_blueprint(comment_blueprint, url_prefix="/api")
 app.register_blueprint(post_trending_bp, url_prefix="/api/posts")
 app.register_blueprint(tag_trending_bp, url_prefix="/api/tags")
+app.register_blueprint(avatar_upload_bp, url_prefix="/api/users/avatar")
 
 db.init_app(app)
 with app.app_context():
