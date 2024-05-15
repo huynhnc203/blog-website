@@ -39,7 +39,6 @@ class User(db.Model):
         self.email = email
         self.password = generate_password_hash(password)
         self.created_at = created_at
-        self.isVerified = True
 
     def create(self):
         db.session.add(self)
