@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="55ec6fd2-9a80-44ee-b2ef-a08e86229c5a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/back-end.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/back-end.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog_api/models/user_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog_api/models/user_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog_api/users/authenticate/authenticate.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog_api/users/authenticate/authenticate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/secret.json" beforeDir="false" afterPath="$PROJECT_DIR$/secret.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,10 +160,10 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Docker.Dockerfile" />
-      <item itemvalue="Docker.compose.yaml.flask_app: Compose Deployment" />
       <item itemvalue="Python.server" />
       <item itemvalue="Python.tornado_server" />
+      <item itemvalue="Docker.Dockerfile" />
+      <item itemvalue="Docker.compose.yaml.flask_app: Compose Deployment" />
       <item itemvalue="Python tests.Python tests for test_tag_resource.TestTagResource" />
     </list>
     <recent_temporary>
