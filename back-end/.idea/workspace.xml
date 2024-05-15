@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55ec6fd2-9a80-44ee-b2ef-a08e86229c5a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog_api/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog_api/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog_api/posts/posts_management/trending.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog_api/posts/posts_management/trending.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog_api/users/management/avatar_upload.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog_api/users/management/avatar_upload.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog_api/utils/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog_api/utils/config.py" afterDir="false" />
-    </list>
+    <list default="true" id="55ec6fd2-9a80-44ee-b2ef-a08e86229c5a" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
