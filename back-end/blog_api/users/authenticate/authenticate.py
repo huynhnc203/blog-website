@@ -38,10 +38,10 @@ def confirm_email(token):
     email = confirm_verification_token(token)
     user = User.find_by_email(email)
     if not user:
-        return response_with(resp.BAD_REQUEST_400, value={"error": "User not found"})
+        return "<h1>Who are u? :))</h1>"
     user.set_verified()
     db.session.commit()
-    return response_with(resp.SUCCESS_200, value={"message": "Email confirmed"})
+    return "<h1>Email confirmed</h1>"
 
 @auth_blueprint.route("/current_user", methods=["POST"])
 @jwt_required()

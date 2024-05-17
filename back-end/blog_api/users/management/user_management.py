@@ -1,3 +1,5 @@
+import os
+
 from blog_api import db
 from flask import url_for, render_template_string
 from flask_restful import Resource, reqparse
@@ -53,7 +55,7 @@ class UserManagement(Resource):
         if user:
             return response_with(resp.BAD_REQUEST_400, error="Email already exists")
         token = generate_verification_token(email)
-        verication_email = url_for('auth.confirm_email', token=token, _external=True)
+        verication_email = os.getenv("external_url") + url_for("auth.confirm_email", token=token)
         html = render_template_string("<p>Welcome! Thanks for signing up. Please follow this link to activate your account: <a href='{{ verication_email }}'>{{ verication_email }}</a></p>",
                                       verication_email=verication_email)
         subject = "Please verify your email"
