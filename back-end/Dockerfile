@@ -25,7 +25,7 @@ ARG password="your_password"
 ENV STAGE="DEPLOYING"
 ENV username=$username
 ENV password=$password
-ENV external_url="http://192.168.1.30:8000"
+ENV external_url="your_external_url"
 ENV OPENAI_API="your_api_token"
 
 # Install PostgreSQL client
