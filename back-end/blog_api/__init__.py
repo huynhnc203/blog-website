@@ -81,6 +81,10 @@ migrate = Migrate(app, db)
 api = Api(app)
 jwt = JWTManager(app)
 
+from blog_api.ai_engine.conclusion_engine import ConclusionEngine
+
+ai = ConclusionEngine()
+
 from blog_api.users.management.user_management import UserManagement
 from blog_api.users.management.avatar_upload import avatar_upload_bp
 from blog_api.posts.posts_management.posts_mamagement import PostManagement
@@ -91,6 +95,7 @@ from blog_api.posts.tag_management.tags_management import TagManagement
 from blog_api.posts.like_posts.like_views import like_blueprint
 from blog_api.posts.comment_management.comments_view import comment_blueprint
 from blog_api.posts.tag_management.trending import tag_trending_bp
+from blog_api.posts.post_conclusion.conclusion_ai import conclusion_bp
 
 
 api.add_resource(UserManagement, "/api/users", "/api/users/<int:id>")
@@ -103,6 +108,7 @@ app.register_blueprint(comment_blueprint, url_prefix="/api")
 app.register_blueprint(post_trending_bp, url_prefix="/api/posts")
 app.register_blueprint(tag_trending_bp, url_prefix="/api/tags")
 app.register_blueprint(avatar_upload_bp, url_prefix="/api/users/avatar")
+app.register_blueprint(conclusion_bp, url_prefix="/api/posts")
 
 db.init_app(app)
 with app.app_context():
