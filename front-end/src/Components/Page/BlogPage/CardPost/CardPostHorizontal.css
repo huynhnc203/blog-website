@@ -42,19 +42,6 @@
   .blog-card__info {
     padding: 20px;
   }
-  
-  .blog-card__info h5 {
-    font-size: 25px;
-    color: #000000;
-  }
-  
-  .blog-card__info p {
-    margin-top: 5px ;
-    margin-bottom: 10px;
-    color: #39ff40;
-    font-size: 18px;
-  }
-  
   .icon-link {
     color: #494848;
     text-decoration: none;

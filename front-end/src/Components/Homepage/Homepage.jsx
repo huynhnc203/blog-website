@@ -7,6 +7,7 @@ import DevelopmentTeam from "./HomepageFour/DevelopmentTeam";
 import GridEvaluatePage from "./EvaluatePage/EvaluatePage";
 import Footer from "./Footer/Footer";
 import ScrollUpButton from "./ScrollUpButton";
+import { Text } from "@chakra-ui/react";
 
 const Homepage = () => {
     return (

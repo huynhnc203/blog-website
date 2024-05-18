@@ -12,6 +12,7 @@ import ProfilePageEdit from "./Components/ProfilePage/ProfilePageEdit";
 import Write from "./Components/Page/Write/Write.jsx";
 import Notification from "./Components/Page/NotificationPage/Notification.jsx";
 import RenderSinglePage from "./Components/Page/BlogPage/SinglePage/RenderSinglePage.jsx";
+import User from "./Components/ProfilePage/User/User.jsx";
 
 //import cang trang moi vao day
 import AboutUs from './Components/Page/Aboutus';
@@ -53,6 +54,7 @@ function AppContent() {
         <Route path="/Write" element = {<Write/>} />
         <Route path="/Notification" element={<Notification />} />
         <Route path="/SinglePage" element={<RenderSinglePage />} />
+        <Route path="/User" element={<User />} />
       </Routes>
     </div>
   );

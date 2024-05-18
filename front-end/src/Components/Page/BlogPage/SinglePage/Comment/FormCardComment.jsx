@@ -3,8 +3,8 @@ import {Image} from '@chakra-ui/react'
 import { useAuth } from '../../../../LoginForm/CheckLogin';
 import { useNavigate } from "react-router-dom";
 
-const FormCardComment = ({id}) => {
-  const link = 'http://localhost:8000/api/comment/' + id
+const FormCardComment = () => {
+  const link = 'http://localhost:8000/api/comment/' + localStorage.getItem('id')
   const [comments, setComments] = useState('')
   const [userData, setUserData] = useState([])
   const {isLoggedIn, setIsLoggedIn} = useAuth();

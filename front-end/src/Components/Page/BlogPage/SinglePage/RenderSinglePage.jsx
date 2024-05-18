@@ -9,15 +9,17 @@ import { CiShare1 } from "react-icons/ci";
 import RenderComment from './Comment/RenderComment';
 import { FaFacebookSquare, FaGithubSquare, FaLinkedin } from "react-icons/fa";
 import {Link} from 'react-router-dom';  
-
+import LoadingPage from '../../../LoadingPage/LoadingPage';
+import he from 'he';
+import { URL_LINK } from '../../../Config';
 
 const RenderSinglePage = () => {
     const [dataPost, setDataPost] = useState({});
     const [authorData, setAuthorData] = useState({})
-    var x = 10;
     const [tym , setTym] = useState(false);
+    const [Loading, setLoading] = useState(false);
     const id = localStorage.getItem('id')
-    var linkPost = "http://localhost:8000/api/posts/" + id 
+    var linkPost = URL_LINK + "/api/posts/" + id 
 
     const makeRequestGetPostId = async () => {
         const options = {
@@ -29,8 +31,8 @@ const RenderSinglePage = () => {
           const response = await fetch(linkPost, options);
           const result = await response.json();
           setDataPost(result['data'])
-          console.log(result['data'])
           setAuthorData(result['data']['author'])
+          setTimeout(()=> setLoading(true), 3000)
         }
 
     const scrollComment= () => {
@@ -40,28 +42,29 @@ const RenderSinglePage = () => {
         })
     }    
 
-
+    // ham set user id vao local
+    const saveUserId = (userid) =>{
+        localStorage.setItem('userId', userid)
+    }
 
     useEffect(() => {
         makeRequestGetPostId();
-        console.log(authorData)
     },[])
         
         
     return (
         <>
+        {Loading ?
         <div className='renderpost'>
             <div className='box-1'>
                 <PostHeader name = {authorData.name} created_at = {authorData['created_at']}/>
                 <div className='tieude'>
-                    <h1>{dataPost.title}</h1>
+                    <Text fontFamily='Oswald' fontSize='50px' fontWeight={700} textAlign={'center'} color='black' >{dataPost.title}</Text>
                 </div>
                 <div className='tieudephu'>
                     <h2>{dataPost.subtitle}</h2>
                 </div>
-                <div>
-                    <p>{dataPost.body}</p>
-                </div>
+                <div className='m-5' dangerouslySetInnerHTML={{ __html: dataPost.body && he.decode(dataPost.body) }}></div>
             <HStack borderTop={'1px'} color="black">
                 <Flex
                     p={4}
@@ -87,7 +90,7 @@ const RenderSinglePage = () => {
                     onClick={() => setTym(true)}>
                     {tym? (
                     <>
-                        <Text> {x} </Text>
+                        <Text>  </Text>
                     <BsHeartFill fill="red" fontSize={'24px'} />
                     </>
                     ) : (
@@ -103,7 +106,7 @@ const RenderSinglePage = () => {
             </div> {/* end box-1 */}
 
 
-            {/* box-2 */}
+            {/* box-2 
             <div className='box-2'>
                 <div className="container mt-4 d-flex justify-content-center " style={{height: '800px'}}>
                 <div className="card p-4" style = {{width: '400px'}}>
@@ -111,7 +114,7 @@ const RenderSinglePage = () => {
                 <button className="btn btn-secondary">
                     <img src={authorData.profile_pic} height="100" width="100" alt="profile avatar" />
                 </button>
-                <span className="name mt-3"><Text>{authorData.name}</Text></span>
+                <span className="name mt-3"><Link to ="/User" className='nav-link' onClick={() => saveUserId(authorData.id)} ><Text>{authorData.name}</Text></Link></span>
                 <span className="idd">@iduser {authorData.id}</span>
                 <span className='buttonFollow mt-3 '><button type="button" class="btn btn-dark rounded-4">Follow</button></span>
                 <div className="d-flex flex-row justify-content-center align-items-center mt-3">
@@ -133,7 +136,7 @@ const RenderSinglePage = () => {
             </div>
             </div>
                     </div>{/* end box-2 */} 
-        </div>
+        </div> : <LoadingPage />}
         </>    
     )
 }

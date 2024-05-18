@@ -13,10 +13,11 @@ import {
 import { BsArrowUpRight, BsHeartFill, BsHeart } from 'react-icons/bs';
 import { Skeleton } from '@chakra-ui/react';
 import { Spinner } from '@chakra-ui/react'
+import { Link } from 'react-router-dom';
 
-const  CardPostBox =({key,load, name , title, subtitle, description}) => {
-  const [liked, setLiked] = useState(false);
+const  CardPostBox =({key,load, name , title, subtitle, idPost}) => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const pictureLink = "picture" + idPost + ".png";
 
   const setload = (load) => {
     setIsLoaded(load);
@@ -26,11 +27,15 @@ const  CardPostBox =({key,load, name , title, subtitle, description}) => {
     setload(load)
   }, [load])
   
+  const setIdPost = (idPost) => {
+    localStorage.setItem('id', idPost)
+  }
 
   return (
     <Center py={6}>
       <Box
         w="300px"
+        minH='550px'
         rounded={'lg'}
         my={3}
         overflow={'hidden'}
@@ -38,18 +43,18 @@ const  CardPostBox =({key,load, name , title, subtitle, description}) => {
         border={'1px'}
         borderColor="black"
         boxShadow={useColorModeValue('6px 6px 0 black', '6px 6px 0 cyan')}>
-        <Box h={'200px'} borderBottom={'1px'} borderColor="black">
-          {isLoaded ?  
-          <Img
-            src={
-              'huynh.jpg'
-            }
+        <Box h={'250px'} borderBottom={'1px'} borderColor="black">
+          {isLoaded ?
+          <Link to = "/SinglePage"  onClick={() => setIdPost(idPost)}>  
+           <Img
+            src= {pictureLink} 
             roundedTop={'sm'}
             objectFit="cover"
             h="full"
             w="full"
             alt={'Blog Image'}
           />
+          </Link>
           : 
          
           <Spinner/>
@@ -65,51 +70,21 @@ const  CardPostBox =({key,load, name , title, subtitle, description}) => {
             color="whrite"
             mb={2}>
             <Skeleton isLoaded={isLoaded}>
-            <Text fontSize={'xs'} fontWeight="medium" color={'green'}>
+            <Text fontSize='15px' fontWeight="medium" color={'green'}>
               {subtitle}
             </Text>
             </Skeleton>
           </Box>
           <Skeleton isLoaded={isLoaded}>
-          <Heading color={'black'} fontSize={'2xl'} /*gioi han so dong hien thi*/ noOfLines={1}>
-            {title}
-          </Heading>
+          <Text className='' fontWeight='medium' style={{fontSize: '20px'}} fontFamily='Oswald' color={'black'} fontSize={'l'}>
+            <Link to= "/SinglePage" className='nav-link' onClick={()=> setIdPost(idPost)} >{title}</Link>
+          </Text>
           </Skeleton>
           <Skeleton isLoaded={isLoaded}>
           <Text color={'gray.500'} noOfLines={2}>
-            {/* chỗ để title */}
-            {description}
           </Text>
           </Skeleton>
         </Box>
-        <HStack borderTop={'1px'} color="black">
-          <Flex
-            p={4}
-            alignItems="center"
-            justifyContent={'space-between'}
-            roundedBottom={'lg'}
-            cursor={'pointer'}
-            w="full">
-            <Text fontSize={'md'} fontWeight={'semibold'}>
-              View more
-            </Text>
-            <BsArrowUpRight />
-          </Flex>
-          <Flex
-            p={4}
-            alignItems="center"
-            justifyContent={'space-between'}
-            roundedBottom={'sm'}
-            borderLeft={'1px'}
-            cursor="pointer"
-            onClick={() => setLiked(!liked)}>
-            {liked ? (
-              <BsHeartFill fill="red" fontSize={'24px'} />
-            ) : (
-              <BsHeart fontSize={'24px'} />
-            )}
-          </Flex>
-        </HStack>
       </Box>
     </Center>
   );

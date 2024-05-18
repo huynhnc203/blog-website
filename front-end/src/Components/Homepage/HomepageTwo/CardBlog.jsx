@@ -2,13 +2,16 @@ import React, { useState } from "react";
 import { Card, CardHeader, CardBody, CardFooter } from "@chakra-ui/react";
 import { Flex, Box, Heading, Text, Avatar, IconButton, Button } from "@chakra-ui/react";
 import { BsThreeDotsVertical } from "react-icons/bs";
-import { BiLike, BiChat, BiShare } from "react-icons/bi";
+import { BiLike} from "react-icons/bi";
 import { Image } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
+import LoadingPage from "../../LoadingPage/LoadingPage";
 
-const CardBlog = ({key, load, name , date , title, subtitle , like}) => {
+const CardBlog = ({key, load, name , date , title, subtitle , like, id , authorid}) => {
     const [isUserHover, setIsUserHover] = useState(false);
     const [likeCount, setLikeCount] = useState(like);
     const [liked, setLiked] = useState(false);
+    const pictureLink = "picture" + id + ".png"
 
     const handleUserHover = () => {
         setIsUserHover(!isUserHover);
@@ -23,12 +26,22 @@ const CardBlog = ({key, load, name , date , title, subtitle , like}) => {
             setLiked(false);
         }
     };
+
+    const setpostid = (id) => {
+        localStorage.setItem('id', id)
+    }
+
+    const saveUserId = (userid) =>{
+        localStorage.setItem('userId', userid)
+    }
+
     return (
-        <Card maxW='md'>
+        <>
+        <Card maxW='md' minH ='700px'>
             <CardHeader>
                 <Flex spacing='4'>
                     <Flex flex='1' gap='4' alignItems='center' flexWrap='wrap'>
-                        <Avatar name='Hung' src='default.jpg' style={{ marginTop: '-20px' }} />
+                        <Avatar name='author name' src='default.jpg' style={{ marginTop: '-20px' }} />
 
                         <Box>
                             <Heading
@@ -37,7 +50,7 @@ const CardBlog = ({key, load, name , date , title, subtitle , like}) => {
                                 onMouseEnter={handleUserHover}
                                 onMouseLeave={handleUserHover}
                                 cursor={"pointer"}
-                                color={isUserHover ? "blue.500" : "black"}>{name}</Heading>
+                                color={isUserHover ? "blue.500" : "black"}> <Link to ="/User" className='nav-link' onClick={() => saveUserId(authorid)} >{name} </Link></Heading>
                             <Text style={{ marginBottom: '20px' }}>{date}</Text>
                         </Box>
                     </Flex>
@@ -51,25 +64,32 @@ const CardBlog = ({key, load, name , date , title, subtitle , like}) => {
             </CardHeader>
             <CardBody>
                 <Text
-                    style={{ marginTop: '-60px', marginBottom: '40px' }}
+                    style={{ marginTop: '-60px', marginBottom: '40px', wordSpacing: '0.08px'}}
                     className="bold-text"
-                    color='Black'
-                    fontSize='20px'>
-                    {title}
+                    onMouseEnter={handleUserHover}
+                    onMouseLeave={handleUserHover}
+                    color={isUserHover ? "blue.500" : "black"}
+                    fontSize='23px'
+                    fontFamily='Oswald'
+                    onClick={() => setpostid(id)}>
+                     <Link to= '/SinglePage' className="nav-link">{title}</Link>    
+                    
                 </Text>
-                <Text style={{ marginTop: '-40px', marginBottom: '0px' }}>
-                    Tôi là một developer chuyên nghiệp, tiếng anh thành thạo hi, hello, sở thích nghe nhạc vàng và ngồi hát.
-                    Trang web đỉnh của chóp do Phúc và tôi - đẹp trai vĩ đại xây dựng này thực sự rất tốt rất tốt.
-                    Một trang web mang đầy đủ tinh hoa của một svip.
+                <Text style={{ marginTop: '-40px', marginBottom: '0px' }}
+                fontFamily='Lora'
+                color='gray'>
+                    {subtitle}
                 </Text>
             </CardBody>
             <Image
+                h='350px'
                 objectFit='cover'
-                src='technology.png'
-                alt='Chakra UI'
+                src= {pictureLink}
+                alt='IMAGE NOT FOUND'
             />
 
             <CardFooter
+                display='flex'
                 justify='space-between'
                 flexWrap='wrap'
                 sx={{
@@ -77,22 +97,15 @@ const CardBlog = ({key, load, name , date , title, subtitle , like}) => {
                         minW: '136px',
                     },
                 }}
-            >
-                <Button
-                    className={`like-button`}
-                    style={{ color: liked ? 'blue' : 'black' }}
-                    variant='ghost'
-                    leftIcon={<BiLike />}
-                    onClick={handleLikeClick}
-                    size="md"
-                >
-                    Like ({likeCount})
-                </Button>
-                <Button flex='1' variant='ghost' leftIcon={<BiShare />}>
-                    Share
+            >   
+                <Button flex='1' variant='ghost' onClick={() => setpostid(id)}>
+                <Link to= '/SinglePage' className="nav-link">
+                    Read now
+                </Link>    
                 </Button>
             </CardFooter>
         </Card>
+        </>    
     )
 }
 export default CardBlog;
