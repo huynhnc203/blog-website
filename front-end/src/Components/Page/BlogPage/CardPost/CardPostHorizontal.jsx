@@ -6,8 +6,9 @@ import { FaRegUserCircle } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { Button } from '@chakra-ui/react';
 import IdContext from '../SinglePage/SinglePageContext';
+import { Text } from '@chakra-ui/react';
 
-const CardPostHorizontal = ({key ,load , name , title , subtitle , description , date, idPost}) => {
+const CardPostHorizontal = ({key ,load , name , title , subtitle , description , date, idPost, idUser}) => {
   const {id, setId} = useContext(IdContext);
   const [isLoaded, setIsLoaded] = useState(false);
   const setload= (load) =>{
@@ -23,7 +24,11 @@ const CardPostHorizontal = ({key ,load , name , title , subtitle , description ,
     setId(idPost)
     localStorage.setItem('id', idPost)
   };
-  
+
+  const setUserId = (userid) =>{
+    localStorage.setItem('userId', userid)
+  }
+ 
   return (
     <>
     <div className="blogpostcardhorizontal mt-5">
@@ -32,8 +37,7 @@ const CardPostHorizontal = ({key ,load , name , title , subtitle , description ,
           <article className="blog-card">
             <div className="blog-card__background">
               <div className="card__background--wrapper">
-                <div className="card__background--main" style={{backgroundImage: "url('http://demo.yolotheme.com/html/motor/images/demo/demo_131.jpg')"}}>
-                  <div className="card__background--layer"></div>
+                <div className="card__background--main" style={{backgroundImage: `url('picture${idPost}.png')`}}>
                 </div>
               </div>
             </div>
@@ -44,18 +48,24 @@ const CardPostHorizontal = ({key ,load , name , title , subtitle , description ,
             </div>
             <div className="blog-card__info">
               <Skeleton isLoaded = {isLoaded}>
-                <h5>{title}</h5>
+                <Text fontSize='24px'
+                fontFamily='Oswald'
+                fontWeight='bold'
+                color='grey' >
+                <Link to = "/SinglePage" className='nav-link' onClick={() => handleGetID(idPost)} >{title}</Link> 
+                </Text>
               </Skeleton>
               <Skeleton isLoaded = {isLoaded}>
-                <p>{subtitle}</p>
+                <Text 
+                fontSize = '18px'
+                fontFamily='Lora'
+                fontWeight='medium'>
+                {subtitle}</Text>
               </Skeleton>
               <Skeleton isLoaded = {isLoaded}>
                 <p>
-                  <a href="#" className="icon-link mr-3"> <FaRegUserCircle size='20px' /> {name}</a>
+                  <Link to="/User" className="nav-link mr-3" onClick={() => setUserId(idUser)} > <FaRegUserCircle size='20px' /> {name}</Link>
                 </p>
-              </Skeleton>
-              <Skeleton isLoaded = {isLoaded}>
-                <p class='des'>{description}</p>
               </Skeleton>
               <Skeleton isLoaded = {isLoaded}>
               <Link to= "/SinglePage" className="nav-link"><Button colorScheme='blue' onClick={() => handleGetID(idPost)}>Read More</Button></Link>

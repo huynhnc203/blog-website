@@ -8,6 +8,9 @@ import  CardPostHorizontal from "./CardPost/CardPostHorizontal";
 import { useEffect, useState  } from "react";
 import { Button } from "react-bootstrap";
 import { FiChevronRight } from "react-icons/fi";
+import {URL_LINK} from '../../Config';
+import { Text, Image } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 
 
 
@@ -18,15 +21,23 @@ const Header = () =>{
         <div className="fond">
             <div className="card">
                 <div className="thumbnail">
-                    <img className="left" src="anhvovan.jpg" />
+                    <Image className="left" style={{width: "100%" , height: "100%"}} src="picture3.png" />
                 </div>
                 <div className="rightcontent">
-                    <h1>Why you Need More Magnesium in Your Daily Diet</h1>
+                    <Link to="/SinglePage" onClick = {() => {localStorage.setItem('id', 3)}}>
+                    <Text
+                    fontFamily='Oswald'
+                    fontSize='24px'
+                    color = 'black'
+                    fontWeight={700}
+                    >
+                     Trên tay Razer Kishi Ultra: chơi game giả lập được, dễ sử dụng, phản hồi rung ngon </Text>
+                     </Link>
                     <div className="author">
-                        <img src="phuc.jpg" />
-                        <h2>Huu Phuc</h2>
+                        <img src="default.jpg" />
+                        <h2>hcn</h2>
                     </div>
-                    <p>Magnesium is one of the six essential macro-minerals that is required by the body for energy production and synthesis of protein and enzymes. It contributes to the development of bones and most importantly it is responsible for synthesis of your DNA and RNA. A new report that has appeared in theBritish Journal of Cancer, gives you another reason to add more magnesium to your diet...</p>
+                    <Text fontFamily='Lora' fontSize='18px'>Ở bài viết hôm trước mình đã trên tay cho anh em Kishi USB-C, nhưng đó chỉ là 1 sản phẩm tầm trung thôi, giờ là con Ultra xịn hơn rất nhiều. Đây là 1 sự lựa chọn hợp lý cho anh em nào đang có nhu cầu cho 1 chiếc máy có thể đem theo được, vì là nó đắm gắn vào điện thoại nên dường như anh em sẽ khó có thể quên mang theo được.</Text>
                 </div>
                 <div className="fab">
                     <FaArrowCircleRight size = {30}/>
@@ -45,6 +56,8 @@ const Content = () => {
     const [count, setCount] = useState(7)
     const [countnext, setCountNext] = useState(10)
 
+    const link = URL_LINK + '/api/posts'
+
     const getLoadMore = () => {
         setIsLoaded(false); 
         setTimeout(() => {
@@ -55,7 +68,7 @@ const Content = () => {
     }
     
     const getAllPosts = async () => {
-    let res = await fetch('http://localhost:8000/api/posts')
+    let res = await fetch(link)
     let data = await res.json()
     setAllPosts(data['data'])
     setIsLoaded(true)
@@ -80,7 +93,7 @@ const Content = () => {
             name = {post.author.name}
             title = {post.title}
             subtitle = {post.subtitle} 
-            description = {post.body.length > maxLength ? post.body.substring(0, 100) + "..." : post.body}
+            idPost = {post.id}
              />
              </Col>
             )) : 
@@ -117,6 +130,7 @@ const Content = () => {
             description = {post.body.length > maxLength ? post.body.substring(0, maxLength) + "..." : post.body}
             date = {post.date.substring(0, 10)}
             idPost = {post.id}
+            idUser = {post.author.id}
              />
             )) : 
                 Array(6).fill().map((_, index) => (
@@ -127,6 +141,7 @@ const Content = () => {
                     title = "chua co"
                     subtitle = "chua co"
                     idPost = "chua co"
+                    idUser = "chua co"
                     />
                 
             ))

@@ -2,15 +2,19 @@ import React from 'react';
 import CardBlog from './CardBlog';
 import { Container, Row, Col } from 'react-bootstrap';
 import { useState, useEffect} from 'react';
+import { URL_LINK } from '../../Config';
+import { Text } from '@chakra-ui/react';
 
 const FeaturePost = () => {
     const [isLoaded, setIsLoaded] = useState(false)
     const [allPosts, setAllPosts] = useState([])
+    const getURL = URL_LINK + '/api/posts'
 
     const getAllPosts = async () => {
-        let res = await fetch('http://localhost:8000/api/posts')
+        let res = await fetch(getURL)
         let data = await res.json()
         setAllPosts(data['data'])
+        console.log(data['data'])
         setIsLoaded(true)
       }
       useEffect(() => {
@@ -20,7 +24,7 @@ const FeaturePost = () => {
     return (
         <Container>
             <div className='Title'>
-                <h2 style={{ marginRight: '960px' }}>Featured Posts</h2>
+                <Text fontSize='50px' fontWeight={700}>Featured Posts</Text>
             </div>
             <Row>
             {isLoaded ? allPosts.slice(0,3).map((post, index) => (
@@ -33,6 +37,8 @@ const FeaturePost = () => {
             title = {post.title}
             subtitle = {post.subtitle} 
             like = {post.likes}
+            id = {post.id} 
+            authorid = {post.author.id}
              />
              </Col>
             )) : 
