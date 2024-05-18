@@ -21,12 +21,12 @@ COPY . .
 
 # Set default user for PostgreSQL
 ARG username="postgres"
-ARG password="your_password"
+ARG password="2003NguyeN:"
 ENV STAGE="DEPLOYING"
 ENV username=$username
 ENV password=$password
-ENV external_url="your_external_url"
-ENV OPENAI_API="your_api_token"
+ENV external_url="YOUR_EXTERNAL_URL"
+ENV OPENAI_API="YOUR_OPENAI
 
 # Install PostgreSQL client
 
