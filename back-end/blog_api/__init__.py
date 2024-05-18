@@ -25,9 +25,9 @@ url_obj = URL.create(
     "postgresql",
     username=os.getenv("username"),
     password=os.getenv("password"),
-    host="back-end-postgres-1",
-    port=5432,
-    database="Blog_Website",
+    host=os.getenv("DB_HOST"),
+    port=os.getenv("DB_PORT"),
+    database=os.getenv("DB_NAME"),
 ) 
 
 def create_app(cfg=app_config.Development, alt_config=None):
