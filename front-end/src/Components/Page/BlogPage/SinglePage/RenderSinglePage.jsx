@@ -3,11 +3,14 @@ import IdContext from './SinglePageContext';
 import { useState } from 'react';
 import './RenderSinglePage.css';
 import PostHeader from './PostHeader';
-import { HStack, Flex, Text } from '@chakra-ui/react';
+import { HStack, Flex, Text, Box , keyframes } from '@chakra-ui/react';
+import { motion, isValidMotionProp } from 'framer-motion'
+
 import { BsHeart, BsHeartFill} from 'react-icons/bs';
 import { CiShare1 } from "react-icons/ci";
 import RenderComment from './Comment/RenderComment';
 import { FaFacebookSquare, FaGithubSquare, FaLinkedin } from "react-icons/fa";
+import { FcFinePrint } from "react-icons/fc";
 import {Link} from 'react-router-dom';  
 import LoadingPage from '../../../LoadingPage/LoadingPage';
 import he from 'he';
@@ -18,8 +21,22 @@ const RenderSinglePage = () => {
     const [authorData, setAuthorData] = useState({})
     const [tym , setTym] = useState(false);
     const [Loading, setLoading] = useState(false);
+    const [useGPT , setUseGPT] = useState(false)
+    const [textGPT, setTextGPT] = useState('')
+    const [loadingText , setLoadingText] = useState(false)
     const id = localStorage.getItem('id')
-    var linkPost = URL_LINK + "/api/posts/" + id 
+    const linkPost = URL_LINK + "/api/posts/" + id 
+    const url_gpt = URL_LINK + "/api/posts/conclusion/" + id
+
+    const animationKeyframes = keyframes`
+  0% { transform: scale(1) rotate(0); border-radius: 20%; }
+  25% { transform: scale(2) rotate(0); border-radius: 20%; }
+  50% { transform: scale(2) rotate(270deg); border-radius: 50%; }
+  75% { transform: scale(1) rotate(270deg); border-radius: 50%; }
+  100% { transform: scale(1) rotate(0); border-radius: 20%; }
+`
+
+    const animation = `${animationKeyframes} 2s ease-in-out infinite`;
 
     const makeRequestGetPostId = async () => {
         const options = {
@@ -32,8 +49,16 @@ const RenderSinglePage = () => {
           const result = await response.json();
           setDataPost(result['data'])
           setAuthorData(result['data']['author'])
+          console.log(1)
           setTimeout(()=> setLoading(true), 3000)
-        }
+    }
+
+    const makeGPTRequest = async () => {
+        const response = await fetch(url_gpt);
+        const result = await response.json();  
+        setTextGPT(result['data']['conclusion']);
+    }
+
 
     const scrollComment= () => {
         window.scrollBy({
@@ -47,8 +72,14 @@ const RenderSinglePage = () => {
         localStorage.setItem('userId', userid)
     }
 
+    const handleAnimationGPT = () => {
+        setUseGPT(true)
+        setTimeout(() => setLoadingText(true), 5000)
+    }
+
     useEffect(() => {
         makeRequestGetPostId();
+        makeGPTRequest();
     },[])
         
         
@@ -77,7 +108,8 @@ const RenderSinglePage = () => {
                     <Text fontSize={'md'} fontWeight={'semibold'}>
                         Comment
                     </Text>
-                    <CiShare1 size = '24px' />
+                    <Text fontWeight={700}> Use GPT <FcFinePrint onClick={() => handleAnimationGPT()} size = '35px' /></Text>
+                    
                 </Flex>
                 <Flex
                     type = "button"
@@ -106,36 +138,28 @@ const RenderSinglePage = () => {
             </div> {/* end box-1 */}
 
 
-            {/* box-2 
+           {useGPT && (
             <div className='box-2'>
-                <div className="container mt-4 d-flex justify-content-center " style={{height: '800px'}}>
-                <div className="card p-4" style = {{width: '400px'}}>
-                <div className="image d-flex flex-column justify-content-center align-items-center">
-                <button className="btn btn-secondary">
-                    <img src={authorData.profile_pic} height="100" width="100" alt="profile avatar" />
-                </button>
-                <span className="name mt-3"><Link to ="/User" className='nav-link' onClick={() => saveUserId(authorData.id)} ><Text>{authorData.name}</Text></Link></span>
-                <span className="idd">@iduser {authorData.id}</span>
-                <span className='buttonFollow mt-3 '><button type="button" class="btn btn-dark rounded-4">Follow</button></span>
-                <div className="d-flex flex-row justify-content-center align-items-center mt-3">
-                    <span className="number p-3"> {authorData.followers} <span className="follow">Followers</span></span>
-                    <span className="number">{authorData.followings} <span className="follow">Followers</span></span>
+                <div className='Gpt-header'>
+                    <Text fontFamily='Oswald' fontSize='50px' fontWeight={700} textAlign={'center'} color='black'> GPT SUMARRY </Text>
                 </div>
-                <div className="text mt-3">
-                    <span>{authorData.description}</span>
-                </div>
-                <div className="gap-3 mt-4 icons d-flex flex-row justify-content-center align-items-center">
-                    <span> <Link> <FaFacebookSquare size = '24px' /></Link> </span>
-                    <span> <Link> <FaGithubSquare size = '24px'/> </Link></span>
-                    <span>  <Link> <FaLinkedin size = '24px' /> </Link></span>
-                </div>
-                <div className="px-2 rounded mt-4 date">
-                    <span className="join">Joined {authorData.created_at}</span>
-                </div>
-                </div>
-            </div>
-            </div>
-                    </div>{/* end box-2 */} 
+                {loadingText ? <Text className='m-3' fontFamily='Lora' fontSize = '20px' fontWeight={600} >{textGPT}</Text> : 
+                <Flex className='mt-5' justifyContent="center" alignItems="center">
+                <Box as={motion.div}
+                    animation={animation}
+                    height='40px'
+                    width='40px'
+                    bg='blue.400'
+                    drag='x'
+                    dragConstraints={{ left: -100, right: 100 }}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    transition='0.5s linear'>
+                </Box>
+                </Flex>}
+                
+            </div>)}
+
         </div> : <LoadingPage />}
         </>    
     )

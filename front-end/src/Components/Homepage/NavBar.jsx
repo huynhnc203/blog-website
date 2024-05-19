@@ -10,10 +10,7 @@ import './NavBar.css';
 
 function NavBar() {
   const {isLoggedIn, setIsLoggedIn} = useAuth();
-  console.log(isLoggedIn);  
-
-
-
+ 
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
@@ -43,7 +40,7 @@ function NavBar() {
           <button><FaRegUserCircle size = '35px' style = {{marginRight : '15px'}} /></button>
           </Link>
           <button type="button" class="btn btn-dark btn-rounded me-2" data-mdb-ripple-init
-          onClick={() => {localStorage.removeItem('token'); setIsLoggedIn(false);  window.location.reload() }}>
+          onClick={() => {localStorage.removeItem('token'); setIsLoggedIn(false); localStorage.setItem('isLoggedIn', false);  window.location.reload() }}>
           Logout
           </button>
           </>

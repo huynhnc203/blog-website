@@ -16,6 +16,7 @@ import {
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from './CheckLogin';
+import { URL_LINK } from '../Config';
 
 
 const LoginForm = () => {
@@ -24,18 +25,21 @@ const LoginForm = () => {
   const [password , setPassword] = useState('');
   const [datalogin , setDataLogin] = useState([]);
   const navigate = useNavigate();
+  const URL = URL_LINK + "/api/authenticate/login";
 
   //hàm xử lý ở đây nhé Huynh
   const handlSignIn = () => {
+    
     console.log(`test email : ${email}`)
     console.log(`test password : ${password}`)
+
     const fetchData = async () => {
       const body = {
         email: email,
         password: password
       }
 
-      let resjson = await fetch('http://localhost:8000/api/authenticate/login',
+      let resjson = await fetch(URL,
         {
           method: 'POST',
           headers: {
@@ -53,6 +57,7 @@ const LoginForm = () => {
       if (localStorage.getItem('token') !== "undefined") {
           navigate('/');
           setIsLoggedIn(true);
+          localStorage.setItem('isLoggedIn', true);
       }
   }
   fetchData();

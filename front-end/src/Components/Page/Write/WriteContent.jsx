@@ -4,7 +4,9 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import './WriteContent.css';
 import { Container, Form } from "react-bootstrap";
+import { URL_LINK } from "../../Config";
 <link href="https://cdn.jsdelivr.net/npm/quill@2.0.1/dist/quill.snow.css" rel="stylesheet" />
+
 
 
 const WriteContent = () => {
@@ -13,6 +15,8 @@ const WriteContent = () => {
   const [tag, setTag] = useState('');
   const [subtitle, setSubtitle] = useState('');
   const [preview, setPreview] = useState(false);
+  
+  const URL = URL_LINK + "/api/posts"
 
   const makeRequestForAddPost = async () => {
     const options = {
@@ -27,7 +31,7 @@ const WriteContent = () => {
             'body': value,
             })
       };
-      const response = await fetch('http://localhost:8000/api/posts', options);
+      const response = await fetch(URL, options);
       const result = await response.json();
     }
 
