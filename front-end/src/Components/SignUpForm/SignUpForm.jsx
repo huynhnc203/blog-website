@@ -19,6 +19,8 @@ import {
 import { useState } from 'react'
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
 import { Link as RouterLink } from 'react-router-dom';
+import { URL_LINK } from '../Config'
+import { useNavigate } from 'react-router-dom';
 
 const SignupCard = () => {
   const [showPassword, setShowPassword] = useState(false)
@@ -26,7 +28,9 @@ const SignupCard = () => {
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const URL = URL_LINK + "/api/users"
 
+  const navigate = useNavigate();
   async function makeRequestForSignIn() {
     const options = {
         method: 'POST',
@@ -40,9 +44,12 @@ const SignupCard = () => {
         })
     };
     try {
-        const response = await fetch('http://localhost:8000/api/users', options);
+        const response = await fetch(URL, options);
         if (!response.ok) {
             throw new Error('Network response was not ok');
+        }
+        else {
+            navigate("/")
         }
         const result = await response.json();
         console.log(result);
@@ -110,7 +117,7 @@ const SignupCard = () => {
                 _hover={{
                   bg: 'blue.500',  
                 }}
-                onClick={makeRequestForSignIn}>
+                onClick={() => makeRequestForSignIn()}>
                 Sign up
               </Button>
             </Stack>
