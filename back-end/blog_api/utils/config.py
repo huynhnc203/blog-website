@@ -4,9 +4,6 @@ import os
 def get_random_string():
     return os.urandom(24)
 
-with open(os.path.realpath('.') + '/secret.json', 'r') as f:
-    secret = json.load(f)
-
 class BaseConfig(object):
     """Base configuration."""
     SECRET_KEY = get_random_string()
@@ -27,7 +24,7 @@ class BaseConfig(object):
 class ProductionConfig(BaseConfig):
     """Production configuration."""
     DEBUG = False
-    SECRET_KEY = open(os.path.realpath('.') + '/secret_key.txt', 'r').read()
+    SECRET_KEY = os.getenv("SECRET")
 
 class Development(BaseConfig):
     """Development configuration."""

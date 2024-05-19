@@ -5,54 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="55ec6fd2-9a80-44ee-b2ef-a08e86229c5a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/blog_api/render/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/render/main_page.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/anhdienthoai.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/anhvovan.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/asset-manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/baner2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/banner.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/cat.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/codiep.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/css/main.f245bddd.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/css/main.f245bddd.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/default.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/hung.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/huynh.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/js/main.2f8376e2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/js/main.2f8376e2.js.LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/js/main.2f8376e2.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/longtran.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/macos.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/nguyenquangminh.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/phuc.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/picture1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/picture10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/picture11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/picture12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/picture13.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/picture15.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/picture16.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/picture18.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/picture2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/picture3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/picture4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/picture5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/picture6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/picture7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/picture8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/picture9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/prom4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/robots.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/rogally.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/technology.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/thanhtunghoang.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/static/truong.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog_api/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog_api/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Procfile." beforeDir="false" afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog_api/utils/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog_api/utils/config.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
