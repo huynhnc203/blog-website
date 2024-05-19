@@ -97,7 +97,7 @@ from blog_api.posts.comment_management.comments_view import comment_blueprint
 from blog_api.posts.tag_management.trending import tag_trending_bp
 from blog_api.posts.post_conclusion.conclusion_ai import conclusion_bp
 from blog_api.search_engine.search_engine import search_engine_bp
-
+from blog_api.render.main_page import main_page_bp
 
 api.add_resource(UserManagement, "/api/users", "/api/users/<int:id>")
 api.add_resource(PostManagement, "/api/posts", "/api/posts/<int:id>", "/api/posts/paginate/<int:page>")
@@ -111,6 +111,7 @@ app.register_blueprint(tag_trending_bp, url_prefix="/api/tags")
 app.register_blueprint(avatar_upload_bp, url_prefix="/api/users/avatar")
 app.register_blueprint(conclusion_bp, url_prefix="/api/posts")
 app.register_blueprint(search_engine_bp, url_prefix="/api")
+app.register_blueprint(main_page_bp, url_prefix="/")
 
 db.init_app(app)
 with app.app_context():
