@@ -3,13 +3,12 @@ import {Link} from 'react-router-dom';
 import './ProfilePage.css';
 import { BsPlusCircleDotted } from "react-icons/bs";
 import { useAuth } from '../LoginForm/CheckLogin';
-
-
-
+import { URL_LINK } from '../Config';
 
 const ProfilePage = () => {
     const {isLoggedIn, setIsLoggedIn} = useAuth();
     const [userData , setUserData] = useState([]);
+    const URL = URL_LINK + "/api/authenticate/current_user"
 
 
     async function makeRequestWithJWT() {
@@ -19,7 +18,7 @@ const ProfilePage = () => {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
           }
         };
-        const response = await fetch('http://localhost:8000/api/authenticate/current_user', options);
+        const response = await fetch(URL, options);
         const result = await response.json();
         setUserData(result['data']);
       }

@@ -12,22 +12,7 @@ function NotificationCenter() {
         <Heading style={{color:"rgba(117, 117, 117, 1)", fontFamily:"sohne, 'Helvetica Neue', Helvetica, Arial, sans-serif"}} fontSize='14px' fontWeight={400}>You're all caught up.</Heading>
         <Heading style={{color:"rgba(26, 137, 23, 1)", fontFamily:"sohne, 'Helvetica Neue', Helvetica, Arial, sans-serif", cursor:"pointer"}} fontSize='14px' fontWeight={500}>Your stats</Heading>
       </div>
-      <h1>helo</h1>
-      <h1>helo</h1>
-      <h1>helo</h1>
-      <h1>helo</h1>
-      <h1>helo</h1>
-      <h1>helo</h1>
-      <h1>helo</h1>
-      <h1>helo</h1>
-      <h1>helo</h1>
-      <h1>helo</h1>
-      <h1>helo</h1>
-      <h1>helo</h1>
-      <h1>helo</h1>
-      <h1>helo</h1>
-      <h1>helo</h1>
-      <h1>helo</h1>
+      <h1> No notification</h1>
     </div>
     </>
   )

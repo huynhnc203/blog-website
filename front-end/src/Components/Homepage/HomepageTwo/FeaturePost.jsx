@@ -14,7 +14,6 @@ const FeaturePost = () => {
         let res = await fetch(getURL)
         let data = await res.json()
         setAllPosts(data['data'])
-        console.log(data['data'])
         setIsLoaded(true)
       }
       useEffect(() => {

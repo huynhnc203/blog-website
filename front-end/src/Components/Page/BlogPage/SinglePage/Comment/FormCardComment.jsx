@@ -1,17 +1,20 @@
 import React, {useState, useEffect} from "react";
-import {Image} from '@chakra-ui/react'
+import {Image, useToast} from '@chakra-ui/react'
 import { useAuth } from '../../../../LoginForm/CheckLogin';
 import { useNavigate } from "react-router-dom";
+import { URL_LINK } from "../../../../Config";
 
 const FormCardComment = () => {
-  const link = 'http://localhost:8000/api/comment/' + localStorage.getItem('id')
+  const link = URL_LINK +  '/api/comment/' + localStorage.getItem('id')
   const [comments, setComments] = useState('')
   const [userData, setUserData] = useState([])
   const {isLoggedIn, setIsLoggedIn} = useAuth();
+  const URL = URL_LINK + "/api/authenticate/current_user"
 
+  const toast = useToast();
   const navigate = useNavigate();
 
-
+  // lay data
   async function makeRequestWithJWT() {
     if(isLoggedIn){
       const options = {
@@ -20,13 +23,14 @@ const FormCardComment = () => {
           'Authorization': 'Bearer ' + localStorage.getItem('token')
         }
       };
-      const response = await fetch('http://localhost:8000/api/authenticate/current_user', options);
+      const response = await fetch(URL, options);
       const result = await response.json();
       setUserData(result['data']);
       console.log(result['data']);
       }
   }
   
+  // add comment
   const makeRequestAddComments = async (comments) => {
     const options = {
         method: 'POST',
@@ -101,6 +105,15 @@ const FormCardComment = () => {
               <button type="submit" className="btn btn-primary btn-sm" onClick={() => {
                 if(isLoggedIn){
                   makeRequestAddComments(comments);
+                  toast({
+                    title: 'Comment success!',
+                    description: "Reload page to see your comment!",
+                    status: 'success',
+                    duration: 9000,
+                    isClosable: true,
+                  })
+                  setTimeout(() => {
+                   window.location.reload()}, 2000)
                 }else {
                   navigate('/LoginForm');
                 }

@@ -3,7 +3,6 @@ import {Image , Text} from '@chakra-ui/react'
 import './CardComment.css'
 
 const CardComment = ({key , comments}) => {
-    console.log(comments)
     return (
         <div className="container p-3">
             <div className="row">
@@ -26,7 +25,7 @@ const CardComment = ({key , comments}) => {
                                 <h6 className="text-muted time">{comments.create_at}</h6>
                             </div>
                         </div>
-                        <div className="post-description"> 
+                        <div className="post-description m-3"> 
                             <p>{comments.body}</p>
                         </div>
                     </div>
