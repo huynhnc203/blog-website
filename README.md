@@ -26,8 +26,6 @@
 ![image](https://github.com/hnc203204/blog-website/assets/115607252/c5e9f8ed-0789-4677-8f41-c8f3ae134f22)
 #### Các bài viết trending:
 ![image](https://github.com/hnc203204/blog-website/assets/115607252/b1276d8a-ac07-4393-81fb-e2c0fc76be67)
-#### Mẫu góp ý
-![image](https://github.com/hnc203204/blog-website/assets/115607252/5d6bfceb-73ad-4930-9fe9-f3c5eebf4716)
 #### Mẫu đăng nhập, đăng ký:
 ![image](https://github.com/hnc203204/blog-website/assets/115607252/2a05be31-9300-4da8-87a0-cb36dff9e804)
 ![image](https://github.com/hnc203204/blog-website/assets/115607252/09c4999f-5f41-408b-a3da-3fd74792792d)
