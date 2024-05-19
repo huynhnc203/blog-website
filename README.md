@@ -10,6 +10,7 @@
 |22022652 | Ngô Đức Hùng |
 
 ### Chào mừng đến với SlayTech, một trang blog hiện đại nơi bạn có thể khám phá những câu chuyện, suy nghĩ và kiến thức từ các tác giả về mọi chủ đề.
+#### Truy cập ngay SlayTech [tại đây](https://thawing-harbor-88042-d89129e7f96c.herokuapp.com/).
 #### Mục tiêu chính của dự án này là xây dựng một trang web blog xử lý cả phía người dùng và quản trị viên bằng các công nghệ sau:
 1. React.js
 2. Node.js
