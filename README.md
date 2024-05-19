@@ -15,6 +15,9 @@
 1. React.js
 2. Node.js
 3. Chakra UI
+4. Flask
+#### Danh sách APIs được phát triển và sử dụng cho việc giao tiếp giữa front-end và back-end [tại đây](https://documenter.getpostman.com/view/28258698/2sA3JJAP16).
+
 #### Trang chủ:
 ![image](https://github.com/hnc203204/blog-website/assets/115607252/78f24899-328d-4c38-9738-32bf1f640cdd)
 ![image](https://github.com/hnc203204/blog-website/assets/115607252/f2959550-c601-476f-94be-f9eb52a2a923)
